@@ -18,6 +18,10 @@ interface FormErrors {
   message?: string;
 }
 
+// Get your free access key from https://web3forms.com
+// Enter hello@latouche.ai to receive submissions
+const WEB3FORMS_ACCESS_KEY = "YOUR_ACCESS_KEY_HERE";
+
 const ContactForm = () => {
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -67,20 +71,26 @@ const ContactForm = () => {
     setStatus("submitting");
     
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: "La Touche – website message",
+          from_name: "La Touche Website",
+          replyto: formData.email.trim(),
           name: formData.name.trim(),
           email: formData.email.trim(),
-          organisation: formData.organisation.trim(),
+          organisation: formData.organisation.trim() || "Not provided",
           message: formData.message.trim(),
         }),
       });
       
-      if (response.ok) {
+      const result = await response.json();
+      
+      if (result.success) {
         setStatus("success");
         setFormData({
           name: "",
@@ -125,7 +135,7 @@ const ContactForm = () => {
           <div className="absolute -left-[9999px]" aria-hidden="true">
             <input
               type="text"
-              name="website"
+              name="botcheck"
               tabIndex={-1}
               autoComplete="off"
               value={formData.honeypot}

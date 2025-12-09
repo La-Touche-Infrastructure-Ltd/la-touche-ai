@@ -18,9 +18,7 @@ interface FormErrors {
   message?: string;
 }
 
-// Get your free access key from https://web3forms.com
-// Enter hello@latouche.ai to receive submissions
-const WEB3FORMS_ACCESS_KEY = "YOUR_ACCESS_KEY_HERE";
+const WEB3FORMS_ACCESS_KEY = "3df537a5-4a45-4be7-9170-c6a03fbfb370";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState<FormData>({

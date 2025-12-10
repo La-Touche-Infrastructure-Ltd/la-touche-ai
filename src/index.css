@@ -109,6 +109,133 @@
 }
 
 /* ================================================
+   LAYOUT CONTAINERS
+   ================================================ */
+
+.page-shell {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 1.5rem 1.4rem 4rem;
+}
+
+@media (min-width: 768px) {
+  .page-shell {
+    padding: 2.5rem 1.8rem 5rem;
+  }
+}
+
+/* ================================================
+   HEADER
+   ================================================ */
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.4rem;
+  gap: 1rem;
+}
+
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.brand-mark img {
+  display: block;
+  width: 32px;
+  height: auto;
+}
+
+.brand-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.brand-title span {
+  opacity: 0.8;
+  font-weight: 500;
+  font-size: 0.78rem;
+  margin-left: 0.45rem;
+}
+
+.header-links {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+
+.header-links a {
+  color: hsl(var(--primary));
+  text-decoration: none;
+}
+
+.header-links a:hover {
+  text-decoration: underline;
+}
+
+/* ================================================
+   HERO - Two column layout
+   ================================================ */
+
+.hero {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+  padding: 1.5rem 0 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+    gap: 2.6rem;
+    align-items: center;
+  }
+}
+
+.hero-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-copy {
+  max-width: 560px;
+}
+
+@media (max-width: 767px) {
+  .hero-copy {
+    text-align: center;
+    margin: 0 auto;
+  }
+}
+
+.hero-title {
+  font-size: 1.85rem;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin: 0 0 0.9rem;
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 2.25rem;
+    text-align: left;
+  }
+}
+
+.hero-sub {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: hsl(var(--muted-foreground));
+  max-width: 34rem;
+}
+
+/* ================================================
    LA TOUCHE LIVING LOGO SYSTEM v0.1
    ================================================ */
 
@@ -457,9 +584,75 @@
   box-shadow:
     0 26px 60px rgba(0, 0, 0, 0.85);
   border: 1px solid rgba(255,255,255,0.03);
+  margin-bottom: 1.9rem;
+}
+
+.page-section h2 {
+  margin-top: 0;
+  margin-bottom: 0.7rem;
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.page-section p {
+  margin-top: 0.7rem;
+  margin-bottom: 0.5rem;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.65;
+  font-size: 0.95rem;
+}
+
+.page-section ul {
+  margin-top: 0.6rem;
+  padding-left: 1.1rem;
+  color: hsl(var(--muted-foreground));
+  font-size: 0.94rem;
+  line-height: 1.65;
 }
 
 /* Keep the contact card slightly stronger as the final room */
 .contact-section {
   margin-top: 2.6rem;
+}
+
+/* ================================================
+   FOOTER
+   ================================================ */
+
+.site-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 1.6rem 1.4rem 2.4rem;
+  font-size: 0.78rem;
+  color: hsl(var(--muted-foreground));
+}
+
+.footer-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+@media (min-width: 640px) {
+  .footer-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.1rem;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: hsl(var(--primary));
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
 }

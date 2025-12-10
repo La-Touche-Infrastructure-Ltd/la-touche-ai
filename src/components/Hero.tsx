@@ -1,15 +1,10 @@
 import logo from "@/assets/la-touche-logo.png";
-
 const Hero = () => {
-  return (
-    <section className="hero">
+  return <section className="hero">
       <div className="hero-visual">
         <div className="living-logo-portal living-logo--idle">
           <div className="living-logo-orbit">
-            <img
-              src={logo}
-              alt="La Touche logo"
-            />
+            <img alt="La Touche logo" src="/lovable-uploads/ed7a1adb-bdfc-4271-849a-2263c7e657aa.png" />
           </div>
         </div>
       </div>
@@ -27,8 +22,6 @@ const Hero = () => {
           Stay close as we build
         </a>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;

@@ -1,10 +1,8 @@
 import logo from "@/assets/la-touche-logo.png";
-
 const Header = () => {
-  return (
-    <header className="site-header">
+  return <header className="site-header">
       <div className="brand-mark">
-        <img src={logo} alt="La Touche icon" />
+        <img alt="La Touche icon" src="/lovable-uploads/39dfb032-ac6a-4900-a9c8-f72f3468cd77.png" />
         <div className="brand-title">
           LA TOUCHE®
           <span>Human centred AI</span>
@@ -14,8 +12,6 @@ const Header = () => {
         <a href="#what-is-la-touche">About</a>
         <a href="#contact">Contact</a>
       </nav>
-    </header>
-  );
+    </header>;
 };
-
 export default Header;

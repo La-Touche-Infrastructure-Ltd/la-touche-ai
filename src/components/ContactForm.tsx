@@ -1,8 +1,4 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
 
 interface FormData {
   name: string;
@@ -13,7 +9,6 @@ interface FormData {
 }
 
 interface FormErrors {
-  name?: string;
   email?: string;
   message?: string;
 }
@@ -38,10 +33,6 @@ const ContactForm = () => {
 
   const validate = (): boolean => {
     const newErrors: FormErrors = {};
-    
-    if (!formData.name.trim()) {
-      newErrors.name = "Please add your name so we know who to reply to.";
-    }
     
     if (!formData.email.trim() || !validateEmail(formData.email)) {
       newErrors.email = "Please add a valid email so La Touche can contact you.";
@@ -79,7 +70,7 @@ const ContactForm = () => {
           subject: "La Touche – website message",
           from_name: "La Touche Website",
           replyto: formData.email.trim(),
-          name: formData.name.trim(),
+          name: formData.name.trim() || "Not provided",
           email: formData.email.trim(),
           organisation: formData.organisation.trim() || "Not provided",
           message: formData.message.trim(),
@@ -116,19 +107,17 @@ const ContactForm = () => {
   };
 
   return (
-    <section id="contact" className="py-24 px-6 bg-card/30">
-      <div className="max-w-2xl mx-auto space-y-8">
-        <div className="space-y-4">
-          <h2 className="text-3xl md:text-4xl font-light text-foreground">
-            Stay close as we build
-          </h2>
-          
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            If you would like to hear when La Touche is ready for pilots or you want to share the problems you face with documents and workflows, you can reach out directly.
-          </p>
-        </div>
+    <section id="contact" className="contact-section px-6">
+      <div className="contact-card">
+        <h2 className="text-3xl md:text-4xl text-foreground">
+          Stay close as we build
+        </h2>
         
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <p className="text-lg text-muted-foreground leading-relaxed">
+          If you would like to hear when La Touche is ready for pilots or you want to share the problems you face with documents and workflows, you can reach out directly.
+        </p>
+        
+        <form onSubmit={handleSubmit} className="contact-form">
           {/* Honeypot field - invisible to users */}
           <div className="absolute -left-[9999px]" aria-hidden="true">
             <input
@@ -141,35 +130,29 @@ const ContactForm = () => {
             />
           </div>
           
-          <div className="space-y-2">
-            <Label htmlFor="name" className="text-foreground">
-              Name <span className="text-primary">*</span>
-            </Label>
-            <Input
+          <div className="space-y-1">
+            <label htmlFor="name" className="text-foreground">
+              Name
+            </label>
+            <input
               id="name"
               type="text"
               value={formData.name}
               onChange={handleChange("name")}
-              className="bg-background border-border focus:ring-primary"
-              aria-describedby={errors.name ? "name-error" : undefined}
+              aria-label="Name"
             />
-            {errors.name && (
-              <p id="name-error" className="text-sm text-destructive">
-                {errors.name}
-              </p>
-            )}
           </div>
           
-          <div className="space-y-2">
-            <Label htmlFor="email" className="text-foreground">
+          <div className="space-y-1">
+            <label htmlFor="email" className="text-foreground">
               Email <span className="text-primary">*</span>
-            </Label>
-            <Input
+            </label>
+            <input
               id="email"
               type="email"
               value={formData.email}
               onChange={handleChange("email")}
-              className="bg-background border-border focus:ring-primary"
+              required
               aria-describedby={errors.email ? "email-error" : undefined}
             />
             {errors.email && (
@@ -179,29 +162,30 @@ const ContactForm = () => {
             )}
           </div>
           
-          <div className="space-y-2">
-            <Label htmlFor="organisation" className="text-foreground">
+          <div className="space-y-1">
+            <label htmlFor="organisation" className="text-foreground">
               Organisation
-            </Label>
-            <Input
+            </label>
+            <input
               id="organisation"
               type="text"
               value={formData.organisation}
               onChange={handleChange("organisation")}
-              className="bg-background border-border focus:ring-primary"
+              aria-label="Organisation"
             />
           </div>
           
-          <div className="space-y-2">
-            <Label htmlFor="message" className="text-foreground">
+          <div className="space-y-1">
+            <label htmlFor="message" className="text-foreground">
               What problem would you love La Touche to remove? <span className="text-primary">*</span>
-            </Label>
-            <Textarea
+            </label>
+            <textarea
               id="message"
               value={formData.message}
               onChange={handleChange("message")}
               rows={5}
-              className="bg-background border-border focus:ring-primary resize-none"
+              required
+              placeholder="Tell us one task or document you wish could disappear."
               aria-describedby={errors.message ? "message-error" : undefined}
             />
             {errors.message && (
@@ -211,13 +195,17 @@ const ContactForm = () => {
             )}
           </div>
           
-          <Button
+          <button
             type="submit"
             disabled={status === "submitting"}
-            className="w-full md:w-auto px-8 py-6 text-base font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 disabled:opacity-50"
+            className="contact-submit"
           >
             {status === "submitting" ? "Sending..." : "Send message"}
-          </Button>
+          </button>
+          
+          <p className="contact-reassurance">
+            We write rarely, only when there is something real to show you, and we never sell or share your details with advertisers.
+          </p>
           
           {status === "success" && (
             <p className="text-success text-sm">
@@ -231,7 +219,7 @@ const ContactForm = () => {
             </p>
           )}
           
-          <p className="text-sm text-muted-foreground pt-4">
+          <p className="text-sm text-muted-foreground pt-2">
             By sending this message you agree that La Touche may store your details and contact you about pilots and related services.
           </p>
         </form>

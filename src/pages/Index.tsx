@@ -1,3 +1,4 @@
+import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import WhatIsLaTouche from "@/components/WhatIsLaTouche";
 import WhoWeAreBuildingFor from "@/components/WhoWeAreBuildingFor";
@@ -7,14 +8,19 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <main className="min-h-screen bg-background">
-      <Hero />
-      <WhatIsLaTouche />
-      <WhoWeAreBuildingFor />
-      <WhatWeAreBuildingNext />
-      <ContactForm />
+    <>
+      <main>
+        <div className="page-shell">
+          <Header />
+          <Hero />
+          <WhatIsLaTouche />
+          <WhoWeAreBuildingFor />
+          <WhatWeAreBuildingNext />
+          <ContactForm />
+        </div>
+      </main>
       <Footer />
-    </main>
+    </>
   );
 };
 

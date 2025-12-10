@@ -6,32 +6,22 @@ const WhatWeAreBuildingNext = () => {
   ];
 
   return (
-    <section className="page-section my-8 mx-6 md:mx-auto">
-      <div className="space-y-8">
-        <h2 className="text-3xl md:text-4xl font-light text-foreground">
-          What we are building next
-        </h2>
-        
-        <p className="text-lg text-muted-foreground leading-relaxed">
-          La Touche is building an AI powered document and workflow layer that sits gently on top of your existing systems. It will help you create, update and connect key documents and processes without needing a big IT project.
-        </p>
-        
-        <ul className="space-y-4">
-          {features.map((feature, index) => (
-            <li 
-              key={index}
-              className="flex items-start gap-3 text-muted-foreground"
-            >
-              <span className="text-primary mt-1.5">•</span>
-              <span className="leading-relaxed">{feature}</span>
-            </li>
-          ))}
-        </ul>
-        
-        <p className="text-muted-foreground italic pt-4">
-          This is a holding page. The first tools are in development and we are speaking quietly with early partners.
-        </p>
-      </div>
+    <section className="page-section" id="what-we-are-building-next">
+      <h2>What we are building next</h2>
+      
+      <p>
+        La Touche is building an AI powered document and workflow layer that sits gently on top of your existing systems. It will help you create, update and connect key documents and processes without needing a big IT project.
+      </p>
+      
+      <ul>
+        {features.map((feature, index) => (
+          <li key={index}>{feature}</li>
+        ))}
+      </ul>
+      
+      <p className="italic">
+        This is a holding page. The first tools are in development and we are speaking quietly with early partners.
+      </p>
     </section>
   );
 };

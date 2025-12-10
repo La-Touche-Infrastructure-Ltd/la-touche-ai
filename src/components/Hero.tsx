@@ -1,5 +1,4 @@
 import logo from "@/assets/la-touche-logo.png";
-import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -12,14 +11,17 @@ const Hero = () => {
   return (
     <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20">
       <div className="max-w-3xl mx-auto text-center space-y-8 animate-fade-in">
-        <img
-          src={logo}
-          alt="La Touche - Human centred AI presence"
-          className="w-48 md:w-64 mx-auto"
-        />
+        <div className="living-logo-portal living-logo--idle">
+          <div className="living-logo-orbit">
+            <img
+              src={logo}
+              alt="La Touche - Human centred AI presence"
+            />
+          </div>
+        </div>
         
         <div className="space-y-6">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-foreground">
+          <h1 className="hero-title text-4xl md:text-5xl lg:text-6xl text-foreground">
             The touch that begins everything
           </h1>
           
@@ -28,13 +30,12 @@ const Hero = () => {
           </p>
         </div>
         
-        <Button 
+        <button 
           onClick={scrollToContact}
-          size="lg"
-          className="mt-8 px-8 py-6 text-base font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300"
+          className="hero-cta"
         >
-          Stay in the loop
-        </Button>
+          Stay close as we build
+        </button>
       </div>
     </section>
   );

@@ -63,7 +63,7 @@ const Terms = () => {
           </p>
           
           <p className="text-sm text-muted-foreground pt-8">
-            Last updated: [DATE]
+            Last updated: 9 December 2025
           </p>
         </div>
       </article>

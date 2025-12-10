@@ -6,8 +6,8 @@ const WhatWeAreBuildingNext = () => {
   ];
 
   return (
-    <section className="py-24 px-6">
-      <div className="max-w-3xl mx-auto space-y-8">
+    <section className="page-section my-8 mx-6 md:mx-auto">
+      <div className="space-y-8">
         <h2 className="text-3xl md:text-4xl font-light text-foreground">
           What we are building next
         </h2>

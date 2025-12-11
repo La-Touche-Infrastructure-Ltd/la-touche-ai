@@ -3,12 +3,14 @@ import { useState } from "react";
 interface FormData {
   name: string;
   email: string;
-  message: string;
+  organisation: string;
+  problem: string;
   honeypot: string;
 }
 
 interface FormErrors {
   email?: string;
+  problem?: string;
 }
 
 const WEB3FORMS_ACCESS_KEY = "3df537a5-4a45-4be7-9170-c6a03fbfb370";
@@ -17,7 +19,8 @@ const ContactForm = () => {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
-    message: "",
+    organisation: "",
+    problem: "",
     honeypot: "",
   });
   const [errors, setErrors] = useState<FormErrors>({});
@@ -35,6 +38,10 @@ const ContactForm = () => {
       newErrors.email = "Please add a valid email so La Touche can contact you.";
     }
     
+    if (!formData.problem.trim()) {
+      newErrors.problem = "Please tell us what problem you'd like La Touche to solve.";
+    }
+    
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -42,7 +49,6 @@ const ContactForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Honeypot check - if filled, silently reject
     if (formData.honeypot) {
       setStatus("success");
       return;
@@ -60,12 +66,13 @@ const ContactForm = () => {
         },
         body: JSON.stringify({
           access_key: WEB3FORMS_ACCESS_KEY,
-          subject: "New message from La Touche holding page",
-          from_name: "La Touche Website",
+          subject: "New La Touche holding page message",
+          from_name: "La Touche Holding Page",
           replyto: formData.email.trim(),
           name: formData.name.trim() || "Not provided",
           email: formData.email.trim(),
-          message: formData.message.trim() || "No message provided",
+          organisation: formData.organisation.trim() || "Not provided",
+          message: formData.problem.trim(),
         }),
       });
       
@@ -76,7 +83,8 @@ const ContactForm = () => {
         setFormData({
           name: "",
           email: "",
-          message: "",
+          organisation: "",
+          problem: "",
           honeypot: "",
         });
         setErrors({});
@@ -98,16 +106,16 @@ const ContactForm = () => {
   };
 
   return (
-    <section id="stay-close" className="contact-section">
+    <section id="contact" className="contact-section">
       <div className="contact-card">
         <h2>Stay close as we build</h2>
         
         <p>
-          Leave your email if you would like to hear from us when there is something real to see. No noise, just gentle updates as La Touche grows.
+          If you would like to hear when La Touche is ready for pilots or you want to share the problems you face with documents and workflows, you can reach out directly.
         </p>
         
         <form onSubmit={handleSubmit} className="contact-form">
-          {/* Honeypot field - invisible to users */}
+          {/* Honeypot field */}
           <div className="absolute -left-[9999px]" aria-hidden="true">
             <input
               type="text"
@@ -119,78 +127,95 @@ const ContactForm = () => {
             />
           </div>
           
-          <div className="contact-form-row contact-form-row--split">
-            <div className="field">
-              <label htmlFor="name" className="field-label">Name (optional)</label>
-              <input
-                id="name"
-                type="text"
-                value={formData.name}
-                onChange={handleChange("name")}
-                placeholder="Your name"
-                autoComplete="name"
-              />
-            </div>
-            
-            <div className="field">
-              <label htmlFor="email" className="field-label">Email</label>
-              <input
-                id="email"
-                type="email"
-                value={formData.email}
-                onChange={handleChange("email")}
-                placeholder="you@example.com"
-                autoComplete="email"
-                required
-                aria-describedby={errors.email ? "email-error" : undefined}
-              />
-              {errors.email && (
-                <p id="email-error" className="text-sm text-destructive mt-1">
-                  {errors.email}
-                </p>
-              )}
-            </div>
+          <div className="field">
+            <label htmlFor="name" className="field-label">Name</label>
+            <input
+              id="name"
+              type="text"
+              value={formData.name}
+              onChange={handleChange("name")}
+              placeholder="Your name (optional)"
+              autoComplete="name"
+            />
           </div>
           
-          <div className="contact-form-row">
-            <div className="field">
-              <label htmlFor="message" className="field-label">Anything you would like to share</label>
-              <textarea
-                id="message"
-                value={formData.message}
-                onChange={handleChange("message")}
-                placeholder="If you would like, tell us one thing you wish felt lighter in your day."
-              />
-            </div>
+          <div className="field">
+            <label htmlFor="email" className="field-label">Email *</label>
+            <input
+              id="email"
+              type="email"
+              value={formData.email}
+              onChange={handleChange("email")}
+              placeholder="you@example.com"
+              autoComplete="email"
+              required
+              aria-describedby={errors.email ? "email-error" : undefined}
+            />
+            {errors.email && (
+              <p id="email-error" className="text-sm text-destructive mt-1">
+                {errors.email}
+              </p>
+            )}
           </div>
           
-          <button
-            type="submit"
-            disabled={status === "submitting"}
-            className="contact-submit"
-          >
-            {status === "submitting" ? "Sending..." : "Send message"}
-          </button>
-          
-          <div className="contact-reassurance">
-            We write to you only when there is something real to share, and we never sell or share your details with advertisers.
+          <div className="field">
+            <label htmlFor="organisation" className="field-label">Organisation</label>
+            <input
+              id="organisation"
+              type="text"
+              value={formData.organisation}
+              onChange={handleChange("organisation")}
+              placeholder="Where you work (optional)"
+              autoComplete="organization"
+            />
           </div>
+          
+          <div className="field">
+            <label htmlFor="problem" className="field-label">What problem would you love La Touche to remove? *</label>
+            <textarea
+              id="problem"
+              value={formData.problem}
+              onChange={handleChange("problem")}
+              placeholder="Tell us one task or document you wish could disappear."
+              required
+              aria-describedby={errors.problem ? "problem-error" : undefined}
+            />
+            {errors.problem && (
+              <p id="problem-error" className="text-sm text-destructive mt-1">
+                {errors.problem}
+              </p>
+            )}
+          </div>
+          
+          <div className="text-center">
+            <button
+              type="submit"
+              disabled={status === "submitting"}
+              className="contact-submit"
+            >
+              {status === "submitting" ? "Sending..." : "Send message"}
+            </button>
+          </div>
+          
+          <p className="contact-reassurance">
+            We write rarely, only when there is something real to show you, and we never sell or share your details with advertisers.
+          </p>
           
           {status === "success" && (
-            <p className="text-success text-sm">
+            <p className="text-success text-sm text-center">
               Thank you. We have received your message and will reply personally.
             </p>
           )}
           
           {status === "error" && (
-            <p className="text-destructive text-sm">
+            <p className="text-destructive text-sm text-center">
               Something went wrong. Please email hello@latouche.ai instead.
             </p>
           )}
           
-          <div className="contact-consent">
-            By sending this message you agree that we can contact you about La Touche. You can ask us to remove your details at any time.
-          </div>
+          <p className="contact-consent">
+            By sending this message you agree that La Touche may store your details and contact you about pilots and related services.
+          </p>
         </form>
       </div>
     </section>

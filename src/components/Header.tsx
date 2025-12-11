@@ -1,13 +1,15 @@
 const Header = () => {
   return (
     <header className="site-header">
-      <div className="brand-lockup">
-        <img 
-          alt="La Touche logo" 
-          src="/lovable-uploads/39dfb032-ac6a-4900-a9c8-f72f3468cd77.png" 
-          className="header-logo-mark"
-        />
-        <span className="brand-text">LA TOUCHE®</span>
+      <div className="header-inner">
+        <a href="/" className="brand-pill">
+          <img 
+            alt="La Touche logo" 
+            src="/lovable-uploads/4ffb72c6-3fb2-486f-b48f-303583bbbe0b.png" 
+            className="brand-pill-logo"
+          />
+          <span className="brand-pill-text">LA TOUCHE®</span>
+        </a>
       </div>
     </header>
   );

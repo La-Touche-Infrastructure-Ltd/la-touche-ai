@@ -1,17 +1,14 @@
 import { Link } from "react-router-dom";
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
-
   return (
     <footer className="site-footer">
       <div className="footer-inner">
-        <div>
-          © {currentYear} LA TOUCHE®. All rights reserved.
-        </div>
+        <div>© 2025 La Touche. All rights reserved.</div>
         <div className="footer-links">
-          <Link to="/privacy">Privacy</Link>
+          <Link to="/privacy">Privacy Policy</Link>
           <Link to="/terms">Terms</Link>
+          <a href="mailto:hello@latouche.ai">Contact</a>
         </div>
       </div>
     </footer>

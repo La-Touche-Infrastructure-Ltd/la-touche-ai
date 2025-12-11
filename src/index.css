@@ -44,8 +44,13 @@
     --error: 0 62% 50%;
     --error-foreground: 210 20% 92%;
 
-    /* Glow effects */
-    --glow-primary: 199 90% 55%;
+    /* Brand colors */
+    --azure: 199 100% 50%;
+    --light-cyan: 189 100% 73%;
+    --deep-blue: 205 100% 17%;
+    --gold: 38 87% 69%;
+    --text-muted: 218 15% 66%;
+    --border-soft: 0 0% 100% / 0.05;
   }
 
   .dark {
@@ -83,6 +88,9 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: -apple-system, system-ui, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
 
   h1, h2, h3, h4, h5, h6,
@@ -100,6 +108,11 @@
     font-weight: 600;
     letter-spacing: -0.01em;
   }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 }
 
 @layer utilities {
@@ -113,133 +126,111 @@
    ================================================ */
 
 .page-shell {
-  max-width: 1120px;
+  max-width: 960px;
   margin: 0 auto;
-  padding: 1.5rem 1.4rem 4rem;
+  padding: 1.25rem 1.5rem 3.5rem;
 }
 
 @media (min-width: 768px) {
   .page-shell {
-    padding: 2.5rem 1.8rem 5rem;
+    padding: 1.75rem 2rem 4rem;
   }
 }
 
 /* ================================================
-   HEADER
+   HEADER - Centered brand lockup
    ================================================ */
 
 .site-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 2.4rem;
-  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1.75rem;
 }
 
-.brand-mark {
+.brand-lockup {
   display: inline-flex;
   align-items: center;
-  gap: 0.7rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  background: radial-gradient(circle at 0% 0%, rgba(79,225,255,0.18), transparent 60%);
 }
 
-.brand-mark img {
-  display: block;
-  width: 32px;
-  height: auto;
-}
-
-.brand-title {
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-}
-
-.brand-title span {
-  opacity: 0.8;
-  font-weight: 500;
-  font-size: 0.78rem;
-  margin-left: 0.45rem;
-}
-
-.header-links {
-  display: flex;
-  gap: 1rem;
-  font-size: 0.8rem;
-  opacity: 0.85;
-}
-
-.header-links a {
-  color: hsl(var(--primary));
-  text-decoration: none;
-}
-
-.header-links a:hover {
-  text-decoration: underline;
-}
-
-/* ================================================
-   HERO - Two column layout
-   ================================================ */
-
-.hero {
-  display: grid;
-  gap: 2rem;
-  align-items: center;
-  padding: 1.5rem 0 2.5rem;
+.header-logo-mark {
+  height: 26px;
+  width: auto;
+  margin-right: 0.55rem;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 @media (min-width: 768px) {
-  .hero {
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
-    gap: 2.6rem;
-    align-items: center;
+  .header-logo-mark {
+    height: 28px;
   }
 }
 
-.hero-visual {
+.brand-text {
+  font-size: 0.95rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: hsl(var(--foreground));
+  opacity: 0.9;
+  white-space: nowrap;
+}
+
+/* ================================================
+   HERO - Centered single column
+   ================================================ */
+
+.hero {
+  text-align: center;
+  padding-top: 0.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.hero-inner {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-}
-
-.hero-copy {
-  max-width: 560px;
-}
-
-@media (max-width: 767px) {
-  .hero-copy {
-    text-align: center;
-    margin: 0 auto;
-  }
+  gap: 1.75rem;
 }
 
 .hero-title {
-  font-size: 1.85rem;
-  line-height: 1.15;
+  font-size: 2.1rem;
+  line-height: 1.1;
   letter-spacing: -0.03em;
-  margin: 0 0 0.9rem;
   font-weight: 700;
+  margin: 0.25rem 0 0.75rem;
 }
 
 @media (min-width: 768px) {
   .hero-title {
-    font-size: 2.25rem;
-    text-align: left;
+    font-size: 2.4rem;
   }
 }
 
-.hero-sub {
+.hero-subline {
+  max-width: 540px;
+  margin: 0 auto;
   font-size: 0.98rem;
   line-height: 1.6;
   color: hsl(var(--muted-foreground));
-  max-width: 34rem;
+}
+
+.hero-meta {
+  margin-top: 0.75rem;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: hsl(var(--foreground) / 0.65);
 }
 
 /* ================================================
    LA TOUCHE LIVING LOGO SYSTEM v0.1
    ================================================ */
 
-/* A1) Portal Container */
 .living-logo-portal {
   position: relative;
   display: inline-flex;
@@ -248,8 +239,8 @@
   padding: 1.5rem 2rem;
   border-radius: 32px;
   background:
-    radial-gradient(circle at 25% 0%, rgba(79,225,255,0.45), transparent 55%),
-    radial-gradient(circle at 80% 120%, rgba(0,168,255,0.85), #05070C);
+    radial-gradient(circle at 30% 0%, rgba(79,225,255,0.4), transparent 55%),
+    radial-gradient(circle at 80% 120%, rgba(0,168,255,0.7), #05070C);
   box-shadow:
     0 40px 90px rgba(0, 0, 0, 0.9),
     0 0 60px rgba(0,168,255,0.9);
@@ -257,39 +248,33 @@
   border: 1px solid rgba(255,255,255,0.04);
 }
 
-.living-logo-orbit img {
-  display: block;
-  max-width: 160px;
-  height: auto;
-}
-
-/* Floor glow under the portal */
 .living-logo-portal::after {
   content: "";
   position: absolute;
   left: 50%;
   bottom: -24px;
   transform: translateX(-50%);
-  width: 150px;
-  height: 26px;
+  width: 180px;
+  height: 32px;
   background: radial-gradient(ellipse at center, rgba(0,168,255,0.55), transparent 70%);
   filter: blur(6px);
-  opacity: 0.9;
+  opacity: 0.85;
   pointer-events: none;
 }
 
-/* A6) Mobile balance for hero */
-@media (max-width: 480px) {
-  .living-logo-portal {
-    margin-bottom: 1.6rem;
-  }
+.living-logo-orbit img {
+  display: block;
+  max-width: 150px;
+  height: auto;
+}
 
+@media (max-width: 480px) {
   .living-logo-orbit img {
     max-width: 135px;
   }
 }
 
-/* A2) Idle breathing animation */
+/* Idle breathing animation */
 @keyframes logoBreath {
   0% {
     box-shadow:
@@ -328,7 +313,7 @@
   animation: logoGlowPulse 7s ease-in-out infinite;
 }
 
-/* A3) Listening state (hover/focus) */
+/* Listening state (hover/focus) */
 .living-logo-portal:hover,
 .living-logo-portal:focus-within {
   box-shadow:
@@ -343,47 +328,26 @@
   filter: drop-shadow(0 0 30px rgba(79,225,255,1));
 }
 
-/* A4) Thinking state (future hook) */
+/* Thinking state (future hook) */
 .living-logo--thinking {
   animation: logoBreath 3.2s ease-in-out infinite;
-}
-
-@keyframes logoCircuit {
-  0% {
-    box-shadow:
-      0 38px 90px rgba(0, 0, 0, 0.95),
-      0 0 35px rgba(0,168,255,0.7);
-  }
-  50% {
-    box-shadow:
-      0 40px 100px rgba(0, 0, 0, 1),
-      0 0 50px rgba(79,225,255,1);
-  }
-  100% {
-    box-shadow:
-      0 38px 90px rgba(0, 0, 0, 0.95),
-      0 0 35px rgba(0,168,255,0.7);
-  }
 }
 
 .living-logo--thinking .living-logo-orbit img {
   animation: logoGlowPulse 3.5s ease-in-out infinite;
 }
 
-/* A5) Accessibility - Reduced motion */
+/* Accessibility - Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .living-logo--idle,
-  .living-logo--thinking {
-    animation: none;
-  }
-
-  .living-logo-orbit img {
+  .living-logo--thinking,
+  .living-logo--idle .living-logo-orbit img {
     animation: none;
   }
 }
 
 /* ================================================
-   HERO CTA - Soft glowing tile
+   HERO CTA - Soft glowing pill
    ================================================ */
 
 .hero-cta {
@@ -396,7 +360,7 @@
   border: none;
   font-weight: 600;
   font-size: 0.95rem;
-  background: linear-gradient(135deg, #00A8FF, #4FE1FF);
+  background: linear-gradient(135deg, hsl(var(--azure)), hsl(var(--light-cyan)));
   color: #05070C;
   box-shadow:
     0 0 0 1px rgba(255, 255, 255, 0.04),
@@ -423,21 +387,13 @@
   transform: translateY(0);
 }
 
-/* Hero title */
-.hero-title {
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  text-align: center;
-}
-
 /* ================================================
-   CONTACT SECTION - Warm campus tile
+   CONTACT SECTION
    ================================================ */
 
 .contact-section {
-  padding-top: 3.5rem;
-  padding-bottom: 4rem;
+  padding-top: 2.5rem;
+  padding-bottom: 3.5rem;
 }
 
 .contact-card {
@@ -451,42 +407,72 @@
   box-shadow:
     0 38px 90px rgba(0, 0, 0, 0.95),
     0 0 40px rgba(0, 0, 0, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid hsl(var(--border-soft));
   backdrop-filter: blur(22px);
 }
 
+@media (min-width: 768px) {
+  .contact-card {
+    padding: 2.6rem 2.3rem;
+  }
+}
+
 .contact-card h2 {
+  margin: 0;
   text-align: center;
   font-weight: 600;
+  font-size: 1.3rem;
   letter-spacing: -0.01em;
 }
 
-.contact-card p {
+.contact-card > p {
   margin-top: 0.9rem;
   margin-bottom: 1.6rem;
   text-align: center;
   opacity: 0.9;
+  font-size: 0.96rem;
+  color: hsl(var(--muted-foreground));
 }
 
-/* Contact form fields - soft capsules */
+/* Contact form */
 .contact-form {
   display: grid;
   gap: 1rem;
 }
 
-.contact-form label {
-  font-size: 0.9rem;
-  margin-bottom: 0.25rem;
+.contact-form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .contact-form-row--split {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .contact-form-row--split .field {
+    flex: 1;
+  }
+}
+
+.field {
+  width: 100%;
+}
+
+.field-label {
+  font-size: 0.86rem;
+  margin-bottom: 0.1rem;
   display: block;
+  color: hsl(var(--foreground) / 0.86);
 }
 
 .contact-form input[type="text"],
 .contact-form input[type="email"],
-.contact-form input[type="tel"],
-.contact-form input[type="url"],
 .contact-form textarea {
   background: #111821;
-  color: #F5F7FA;
+  color: hsl(var(--foreground));
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.03);
   box-shadow:
@@ -505,22 +491,20 @@
 }
 
 .contact-form textarea {
-  min-height: 140px;
+  min-height: 130px;
   resize: vertical;
 }
 
 .contact-form input[type="text"]:focus,
 .contact-form input[type="email"]:focus,
-.contact-form input[type="tel"]:focus,
-.contact-form input[type="url"]:focus,
 .contact-form textarea:focus {
-  border-color: #00A8FF;
+  border-color: hsl(var(--azure));
   box-shadow:
     0 0 0 1px rgba(79, 225, 255, 0.7),
     0 0 25px rgba(0, 168, 255, 0.6);
 }
 
-/* Submit button - glowing pill */
+/* Submit button */
 .contact-submit {
   margin-top: 0.6rem;
   display: inline-flex;
@@ -531,7 +515,7 @@
   border: none;
   font-weight: 600;
   font-size: 0.95rem;
-  background: linear-gradient(135deg, #00A8FF, #4FE1FF);
+  background: linear-gradient(135deg, hsl(var(--azure)), hsl(var(--light-cyan)));
   color: #05070C;
   cursor: pointer;
   box-shadow:
@@ -558,19 +542,68 @@
 }
 
 .contact-submit:disabled {
-  opacity: 0.6;
+  opacity: 0.7;
   cursor: not-allowed;
 }
 
-/* Reassurance text */
 .contact-reassurance {
   margin-top: 0.6rem;
-  font-size: 0.8rem;
-  opacity: 0.75;
+  font-size: 0.82rem;
+  opacity: 0.78;
+  color: hsl(var(--muted-foreground));
+}
+
+.contact-consent {
+  margin-top: 0.75rem;
+  font-size: 0.78rem;
+  color: hsl(var(--muted-foreground));
 }
 
 /* ================================================
-   QUIET ROOMS – Section Wrappers
+   FOOTER
+   ================================================ */
+
+.site-footer {
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.footer-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-size: 0.8rem;
+  color: hsl(var(--muted-foreground));
+}
+
+@media (min-width: 768px) {
+  .footer-inner {
+    padding: 1.5rem 2rem 1.85rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  opacity: 0.85;
+}
+
+.footer-links a:hover {
+  opacity: 1;
+}
+
+/* ================================================
+   PAGE SECTIONS (for content pages)
    ================================================ */
 
 .page-section {
@@ -608,51 +641,4 @@
   color: hsl(var(--muted-foreground));
   font-size: 0.94rem;
   line-height: 1.65;
-}
-
-/* Keep the contact card slightly stronger as the final room */
-.contact-section {
-  margin-top: 2.6rem;
-}
-
-/* ================================================
-   FOOTER
-   ================================================ */
-
-.site-footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  padding: 1.6rem 1.4rem 2.4rem;
-  font-size: 0.78rem;
-  color: hsl(var(--muted-foreground));
-}
-
-.footer-inner {
-  max-width: 1120px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-}
-
-@media (min-width: 640px) {
-  .footer-inner {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-}
-
-.footer-links {
-  display: flex;
-  gap: 1.1rem;
-  flex-wrap: wrap;
-}
-
-.footer-links a {
-  color: hsl(var(--primary));
-  text-decoration: none;
-}
-
-.footer-links a:hover {
-  text-decoration: underline;
 }

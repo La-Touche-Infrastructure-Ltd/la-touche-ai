@@ -4,7 +4,7 @@ const Hero = () => {
       <div className="hero-visual">
         <div className="living-logo-portal living-logo--idle">
           <div className="living-logo-orbit">
-            <img alt="La Touche logo" src="/lovable-uploads/e57d8877-0f4c-49f2-9b8e-2c78294b3e58.png" />
+            <img alt="La Touche logo" src="/lovable-uploads/4ffb72c6-3fb2-486f-b48f-303583bbbe0b.png" />
           </div>
         </div>
       </div>

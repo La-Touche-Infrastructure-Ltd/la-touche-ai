@@ -3,14 +3,12 @@ import { useState } from "react";
 interface FormData {
   name: string;
   email: string;
-  organisation: string;
   message: string;
   honeypot: string;
 }
 
 interface FormErrors {
   email?: string;
-  message?: string;
 }
 
 const WEB3FORMS_ACCESS_KEY = "3df537a5-4a45-4be7-9170-c6a03fbfb370";
@@ -19,7 +17,6 @@ const ContactForm = () => {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
-    organisation: "",
     message: "",
     honeypot: "",
   });
@@ -36,10 +33,6 @@ const ContactForm = () => {
     
     if (!formData.email.trim() || !validateEmail(formData.email)) {
       newErrors.email = "Please add a valid email so La Touche can contact you.";
-    }
-    
-    if (!formData.message.trim()) {
-      newErrors.message = "Tell us briefly what problem you would love La Touche to remove.";
     }
     
     setErrors(newErrors);
@@ -67,13 +60,12 @@ const ContactForm = () => {
         },
         body: JSON.stringify({
           access_key: WEB3FORMS_ACCESS_KEY,
-          subject: "La Touche – website message",
+          subject: "New message from La Touche holding page",
           from_name: "La Touche Website",
           replyto: formData.email.trim(),
           name: formData.name.trim() || "Not provided",
           email: formData.email.trim(),
-          organisation: formData.organisation.trim() || "Not provided",
-          message: formData.message.trim(),
+          message: formData.message.trim() || "No message provided",
         }),
       });
       
@@ -84,7 +76,6 @@ const ContactForm = () => {
         setFormData({
           name: "",
           email: "",
-          organisation: "",
           message: "",
           honeypot: "",
         });
@@ -107,14 +98,12 @@ const ContactForm = () => {
   };
 
   return (
-    <section id="contact" className="contact-section px-6">
+    <section id="stay-close" className="contact-section">
       <div className="contact-card">
-        <h2 className="text-3xl md:text-4xl text-foreground">
-          Stay close as we build
-        </h2>
+        <h2>Stay close as we build</h2>
         
-        <p className="text-lg text-muted-foreground leading-relaxed">
-          If you would like to hear when La Touche is ready for pilots or you want to share the problems you face with documents and workflows, you can reach out directly.
+        <p>
+          Leave your email if you would like to hear from us when there is something real to see. No noise, just gentle updates as La Touche grows.
         </p>
         
         <form onSubmit={handleSubmit} className="contact-form">
@@ -130,69 +119,49 @@ const ContactForm = () => {
             />
           </div>
           
-          <div className="space-y-1">
-            <label htmlFor="name" className="text-foreground">
-              Name
-            </label>
-            <input
-              id="name"
-              type="text"
-              value={formData.name}
-              onChange={handleChange("name")}
-              aria-label="Name"
-            />
+          <div className="contact-form-row contact-form-row--split">
+            <div className="field">
+              <label htmlFor="name" className="field-label">Name (optional)</label>
+              <input
+                id="name"
+                type="text"
+                value={formData.name}
+                onChange={handleChange("name")}
+                placeholder="Your name"
+                autoComplete="name"
+              />
+            </div>
+            
+            <div className="field">
+              <label htmlFor="email" className="field-label">Email</label>
+              <input
+                id="email"
+                type="email"
+                value={formData.email}
+                onChange={handleChange("email")}
+                placeholder="you@example.com"
+                autoComplete="email"
+                required
+                aria-describedby={errors.email ? "email-error" : undefined}
+              />
+              {errors.email && (
+                <p id="email-error" className="text-sm text-destructive mt-1">
+                  {errors.email}
+                </p>
+              )}
+            </div>
           </div>
           
-          <div className="space-y-1">
-            <label htmlFor="email" className="text-foreground">
-              Email <span className="text-primary">*</span>
-            </label>
-            <input
-              id="email"
-              type="email"
-              value={formData.email}
-              onChange={handleChange("email")}
-              required
-              aria-describedby={errors.email ? "email-error" : undefined}
-            />
-            {errors.email && (
-              <p id="email-error" className="text-sm text-destructive">
-                {errors.email}
-              </p>
-            )}
-          </div>
-          
-          <div className="space-y-1">
-            <label htmlFor="organisation" className="text-foreground">
-              Organisation
-            </label>
-            <input
-              id="organisation"
-              type="text"
-              value={formData.organisation}
-              onChange={handleChange("organisation")}
-              aria-label="Organisation"
-            />
-          </div>
-          
-          <div className="space-y-1">
-            <label htmlFor="message" className="text-foreground">
-              What problem would you love La Touche to remove? <span className="text-primary">*</span>
-            </label>
-            <textarea
-              id="message"
-              value={formData.message}
-              onChange={handleChange("message")}
-              rows={5}
-              required
-              placeholder="Tell us one task or document you wish could disappear."
-              aria-describedby={errors.message ? "message-error" : undefined}
-            />
-            {errors.message && (
-              <p id="message-error" className="text-sm text-destructive">
-                {errors.message}
-              </p>
-            )}
+          <div className="contact-form-row">
+            <div className="field">
+              <label htmlFor="message" className="field-label">Anything you would like to share</label>
+              <textarea
+                id="message"
+                value={formData.message}
+                onChange={handleChange("message")}
+                placeholder="If you would like, tell us one thing you wish felt lighter in your day."
+              />
+            </div>
           </div>
           
           <button
@@ -203,9 +172,9 @@ const ContactForm = () => {
             {status === "submitting" ? "Sending..." : "Send message"}
           </button>
           
-          <p className="contact-reassurance">
-            We write rarely, only when there is something real to show you, and we never sell or share your details with advertisers.
-          </p>
+          <div className="contact-reassurance">
+            We write to you only when there is something real to share, and we never sell or share your details with advertisers.
+          </div>
           
           {status === "success" && (
             <p className="text-success text-sm">
@@ -219,9 +188,9 @@ const ContactForm = () => {
             </p>
           )}
           
-          <p className="text-sm text-muted-foreground pt-2">
-            By sending this message you agree that La Touche may store your details and contact you about pilots and related services.
-          </p>
+          <div className="contact-consent">
+            By sending this message you agree that we can contact you about La Touche. You can ask us to remove your details at any time.
+          </div>
         </form>
       </div>
     </section>

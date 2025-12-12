@@ -8,6 +8,7 @@ const Footer = () => {
       </p>
       <div className="footer-links">
         <span className="footer-brand">LA TOUCHE®</span>
+        <span className="footer-copyright">© 2025 La Touche Ltd. All rights reserved.</span>
         <Link to="/privacy">Privacy</Link>
         <Link to="/terms">Terms</Link>
       </div>

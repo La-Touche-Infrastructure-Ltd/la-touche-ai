@@ -13,7 +13,7 @@ const Hero = () => {
 
       <h1 className="hero-title">The touch that begins everything</h1>
       <p className="hero-subline">
-        For regulated teams buried in documents, LA TOUCHE brings calm by turning messy workflows into reliable systems—launching soon.
+        The spirit of order in a world of disorder, powered by La Touche AI that works the way you think and speak.
       </p>
 
       <a href="#contact" className="hero-cta">

@@ -3,12 +3,11 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className="site-footer">
-      <div className="footer-brand">La Touche</div>
-      <div className="footer-subline">The touch that begins everything</div>
-      <p className="footer-desc">
-        La Touche is a human centred AI presence that brings order to documents, policies and workflows.
+      <p className="footer-disclaimer">
+        La Touche uses artificial intelligence to support your work but it can still make mistakes so please check important information before you rely on it.
       </p>
       <div className="footer-links">
+        <span className="footer-brand">LA TOUCHE®</span>
         <Link to="/privacy">Privacy</Link>
         <Link to="/terms">Terms</Link>
       </div>

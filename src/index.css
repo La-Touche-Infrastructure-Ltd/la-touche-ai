@@ -485,12 +485,12 @@
   color: hsl(var(--muted-foreground));
 }
 
-.footer-links {
+.footer-brand-block {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  gap: 1.4rem;
-  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 1rem;
 }
 
 .footer-brand {
@@ -505,10 +505,24 @@
   color: hsl(var(--muted-foreground));
 }
 
+.footer-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 0.8rem;
+}
+
+.footer-divider {
+  color: hsl(var(--muted-foreground));
+  font-size: 0.86rem;
+}
+
 .footer-links a {
   color: hsl(var(--foreground));
   text-decoration: none;
   font-size: 0.86rem;
+  transition: color 150ms ease;
 }
 
 .footer-links a:hover {

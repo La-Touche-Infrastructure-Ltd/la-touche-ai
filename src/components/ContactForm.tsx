@@ -3,14 +3,12 @@ import { useState } from "react";
 interface FormData {
   name: string;
   email: string;
-  organisation: string;
   problem: string;
   honeypot: string;
 }
 
 interface FormErrors {
   email?: string;
-  problem?: string;
 }
 
 const WEB3FORMS_ACCESS_KEY = "3df537a5-4a45-4be7-9170-c6a03fbfb370";
@@ -19,7 +17,6 @@ const ContactForm = () => {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
-    organisation: "",
     problem: "",
     honeypot: "",
   });
@@ -36,10 +33,6 @@ const ContactForm = () => {
     
     if (!formData.email.trim() || !validateEmail(formData.email)) {
       newErrors.email = "Please add a valid email so La Touche can contact you.";
-    }
-    
-    if (!formData.problem.trim()) {
-      newErrors.problem = "Please tell us what problem you'd like La Touche to solve.";
     }
     
     setErrors(newErrors);
@@ -71,8 +64,7 @@ const ContactForm = () => {
           replyto: formData.email.trim(),
           name: formData.name.trim() || "Not provided",
           email: formData.email.trim(),
-          organisation: formData.organisation.trim() || "Not provided",
-          message: formData.problem.trim(),
+          message: formData.problem.trim() || "No message provided",
         }),
       });
       
@@ -83,7 +75,6 @@ const ContactForm = () => {
         setFormData({
           name: "",
           email: "",
-          organisation: "",
           problem: "",
           honeypot: "",
         });
@@ -110,10 +101,6 @@ const ContactForm = () => {
       <div className="contact-card">
         <h2>Stay close as we build</h2>
         
-        <p>
-          If you would like to hear when La Touche is ready for pilots or you want to share the problems you face with documents and workflows, you can reach out directly.
-        </p>
-        
         <form onSubmit={handleSubmit} className="contact-form">
           {/* Honeypot field */}
           <div className="absolute -left-[9999px]" aria-hidden="true">
@@ -128,19 +115,19 @@ const ContactForm = () => {
           </div>
           
           <div className="field">
-            <label htmlFor="name" className="field-label">Name</label>
+            <label htmlFor="name" className="field-label">Name (optional)</label>
             <input
               id="name"
               type="text"
               value={formData.name}
               onChange={handleChange("name")}
-              placeholder="Your name (optional)"
+              placeholder="Your name"
               autoComplete="name"
             />
           </div>
           
           <div className="field">
-            <label htmlFor="email" className="field-label">Email *</label>
+            <label htmlFor="email" className="field-label">Email</label>
             <input
               id="email"
               type="email"
@@ -159,32 +146,13 @@ const ContactForm = () => {
           </div>
           
           <div className="field">
-            <label htmlFor="organisation" className="field-label">Organisation</label>
-            <input
-              id="organisation"
-              type="text"
-              value={formData.organisation}
-              onChange={handleChange("organisation")}
-              placeholder="Where you work (optional)"
-              autoComplete="organization"
-            />
-          </div>
-          
-          <div className="field">
-            <label htmlFor="problem" className="field-label">What problem would you love La Touche to remove? *</label>
+            <label htmlFor="problem" className="field-label">What problem would you love La Touche to remove?</label>
             <textarea
               id="problem"
               value={formData.problem}
               onChange={handleChange("problem")}
               placeholder="Tell us one task or document you wish could disappear."
-              required
-              aria-describedby={errors.problem ? "problem-error" : undefined}
             />
-            {errors.problem && (
-              <p id="problem-error" className="text-sm text-destructive mt-1">
-                {errors.problem}
-              </p>
-            )}
           </div>
           
           <div className="text-center">
@@ -198,7 +166,7 @@ const ContactForm = () => {
           </div>
           
           <p className="contact-reassurance">
-            We write rarely, only when there is something real to show you, and we never sell or share your details with advertisers.
+            We write to you only when there's something real to share, and we never sell or share your details with advertisers.
           </p>
           
           {status === "success" && (
@@ -212,10 +180,6 @@ const ContactForm = () => {
               Something went wrong. Please email hello@latouche.ai instead.
             </p>
           )}
-          
-          <p className="contact-consent">
-            By sending this message you agree that La Touche may store your details and contact you about pilots and related services.
-          </p>
         </form>
       </div>
     </section>

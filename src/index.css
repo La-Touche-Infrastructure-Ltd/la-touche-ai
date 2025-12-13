@@ -319,7 +319,7 @@
 }
 
 .contact-card h2 {
-  margin: 0;
+  margin: 0 0 1.6rem 0;
   text-align: center;
   font-weight: 600;
   font-size: 1.3rem;
@@ -591,13 +591,13 @@ section li::before {
 
 .cookie-banner {
   position: fixed;
-  bottom: 1.2rem;
+  bottom: 0.6rem;
   left: 50%;
   transform: translateX(-50%);
-  width: calc(100% - 2rem);
-  max-width: 600px;
-  padding: 1.2rem 1.4rem;
-  border-radius: 18px;
+  width: calc(100% - 1.5rem);
+  max-width: 560px;
+  padding: 0.9rem 1.1rem;
+  border-radius: 14px;
   background: hsl(220 25% 12% / 0.95);
   backdrop-filter: blur(16px);
   border: 1px solid hsl(var(--border));
@@ -606,6 +606,13 @@ section li::before {
     0 0 30px rgba(0, 0, 0, 0.4);
   z-index: 1000;
   animation: cookieBannerSlideUp 400ms ease-out;
+}
+
+@media (min-width: 768px) {
+  .cookie-banner {
+    bottom: 1rem;
+    padding: 1rem 1.3rem;
+  }
 }
 
 @keyframes cookieBannerSlideUp {

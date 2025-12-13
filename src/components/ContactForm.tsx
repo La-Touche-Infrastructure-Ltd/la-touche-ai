@@ -99,7 +99,7 @@ const ContactForm = () => {
   return (
     <section id="contact" className="contact-section">
       <div className="contact-card">
-        <h2 className="mb-6">Tell us what feels heavy</h2>
+        <h2>Tell us what feels heavy</h2>
         
         <form onSubmit={handleSubmit} className="contact-form">
           {/* Honeypot field */}

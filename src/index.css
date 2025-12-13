@@ -584,3 +584,95 @@ section li::before {
     padding-inline: 1.4rem;
   }
 }
+
+/* ================================================
+   COOKIE BANNER
+   ================================================ */
+
+.cookie-banner {
+  position: fixed;
+  bottom: 1.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 2rem);
+  max-width: 600px;
+  padding: 1.2rem 1.4rem;
+  border-radius: 18px;
+  background: hsl(220 25% 12% / 0.95);
+  backdrop-filter: blur(16px);
+  border: 1px solid hsl(var(--border));
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  animation: cookieBannerSlideUp 400ms ease-out;
+}
+
+@keyframes cookieBannerSlideUp {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.cookie-banner-text {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: hsl(var(--foreground));
+  margin: 0 0 1rem 0;
+  max-width: none;
+}
+
+.cookie-banner-link {
+  color: hsl(var(--azure));
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.cookie-banner-link:hover {
+  color: hsl(var(--light-cyan));
+}
+
+.cookie-banner-actions {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.cookie-banner-accept {
+  padding: 0.6rem 1.2rem;
+  border-radius: 9999px;
+  border: none;
+  font-weight: 600;
+  font-size: 0.86rem;
+  background: linear-gradient(135deg, hsl(var(--azure)), hsl(var(--light-cyan)));
+  color: #05070C;
+  cursor: pointer;
+  transition: filter 150ms ease, transform 150ms ease;
+}
+
+.cookie-banner-accept:hover {
+  filter: brightness(1.07);
+  transform: translateY(-1px);
+}
+
+.cookie-banner-essential {
+  padding: 0.6rem 1.2rem;
+  border-radius: 9999px;
+  border: 1px solid hsl(var(--border));
+  background: transparent;
+  font-weight: 500;
+  font-size: 0.86rem;
+  color: hsl(var(--foreground));
+  cursor: pointer;
+  transition: border-color 150ms ease, color 150ms ease;
+}
+
+.cookie-banner-essential:hover {
+  border-color: hsl(var(--azure));
+  color: hsl(var(--azure));
+}

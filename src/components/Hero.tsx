@@ -1,4 +1,4 @@
-import logoImage from "@/assets/la-touche-logo.png";
+import logoImage from "@/assets/la-touche-logo-nosquare.png";
 
 const Hero = () => {
   return (

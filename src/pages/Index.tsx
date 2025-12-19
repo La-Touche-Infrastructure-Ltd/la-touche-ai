@@ -6,9 +6,9 @@ import CookieBanner from "@/components/CookieBanner";
 const Index = () => {
   return (
     <main>
-      <Hero />
-      <ContactForm />
       <div className="page-shell">
+        <Hero />
+        <ContactForm />
         <Footer />
       </div>
       <CookieBanner />

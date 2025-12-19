@@ -3,8 +3,7 @@ import { useState } from "react";
 interface FormData {
   name: string;
   email: string;
-  sector: string;
-  document: string;
+  problem: string;
   honeypot: string;
 }
 
@@ -18,8 +17,7 @@ const ContactForm = () => {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
-    sector: "",
-    document: "",
+    problem: "",
     honeypot: "",
   });
   const [errors, setErrors] = useState<FormErrors>({});
@@ -61,13 +59,12 @@ const ContactForm = () => {
         },
         body: JSON.stringify({
           access_key: WEB3FORMS_ACCESS_KEY,
-          subject: "New La Touche demo request",
-          from_name: "La Touche Demo Request",
+          subject: "New La Touche holding page message",
+          from_name: "La Touche Holding Page",
           replyto: formData.email.trim(),
           name: formData.name.trim() || "Not provided",
           email: formData.email.trim(),
-          sector: formData.sector.trim() || "Not provided",
-          document: formData.document.trim() || "Not provided",
+          message: formData.problem.trim() || "No message provided",
         }),
       });
       
@@ -78,8 +75,7 @@ const ContactForm = () => {
         setFormData({
           name: "",
           email: "",
-          sector: "",
-          document: "",
+          problem: "",
           honeypot: "",
         });
         setErrors({});
@@ -100,26 +96,12 @@ const ContactForm = () => {
     }
   };
 
-  if (status === "success") {
-    return (
-      <section id="request-demo" className="lt-shell">
-        <div className="lt-card lt-form-card">
-          <div className="lt-success" role="status" aria-live="polite">
-            <h3>Thank you for reaching out.</h3>
-            <p>We will come back to you soon with the next steps and a time for your demo.</p>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
   return (
-    <section id="request-demo" className="lt-shell">
-      <div className="lt-card lt-form-card">
-        <h2>Request a demo</h2>
-        <p className="lt-muted lt-form-intro">Tell us your sector and the document you want to see transformed.</p>
+    <section id="contact" className="contact-section">
+      <div className="contact-card">
+        <h2>Tell us what feels heavy</h2>
         
-        <form onSubmit={handleSubmit} className="lt-form">
+        <form onSubmit={handleSubmit} className="contact-form">
           {/* Honeypot field */}
           <div className="absolute -left-[9999px]" aria-hidden="true">
             <input
@@ -132,8 +114,8 @@ const ContactForm = () => {
             />
           </div>
           
-          <div className="lt-field">
-            <label htmlFor="name" className="lt-label">Name (optional)</label>
+          <div className="field">
+            <label htmlFor="name" className="field-label">Name (optional)</label>
             <input
               id="name"
               type="text"
@@ -141,12 +123,11 @@ const ContactForm = () => {
               onChange={handleChange("name")}
               placeholder="Your name"
               autoComplete="name"
-              className="lt-input"
             />
           </div>
           
-          <div className="lt-field">
-            <label htmlFor="email" className="lt-label">Email</label>
+          <div className="field">
+            <label htmlFor="email" className="field-label">Email</label>
             <input
               id="email"
               type="email"
@@ -156,54 +137,46 @@ const ContactForm = () => {
               autoComplete="email"
               required
               aria-describedby={errors.email ? "email-error" : undefined}
-              className="lt-input"
             />
             {errors.email && (
-              <p id="email-error" className="lt-error">
+              <p id="email-error" className="text-sm text-destructive mt-1">
                 {errors.email}
               </p>
             )}
           </div>
-
-          <div className="lt-field">
-            <label htmlFor="sector" className="lt-label">Sector (optional)</label>
-            <input
-              id="sector"
-              type="text"
-              value={formData.sector}
-              onChange={handleChange("sector")}
-              placeholder="e.g. Healthcare, Education, Finance"
-              className="lt-input"
-            />
-          </div>
           
-          <div className="lt-field">
-            <label htmlFor="document" className="lt-label">Document to transform (optional)</label>
+          <div className="field">
+            <label htmlFor="problem" className="field-label">What problem would you love La Touche to remove?</label>
             <textarea
-              id="document"
-              value={formData.document}
-              onChange={handleChange("document")}
-              placeholder="e.g. Fire Safety Policy, Staff Handbook, GDPR Policy"
-              className="lt-textarea"
+              id="problem"
+              value={formData.problem}
+              onChange={handleChange("problem")}
+              placeholder="Tell us one task or document you wish could disappear."
             />
           </div>
           
-          <div className="lt-form-actions">
+          <div className="text-center">
             <button
               type="submit"
               disabled={status === "submitting"}
-              className="lt-btn"
+              className="contact-submit"
             >
-              {status === "submitting" ? "Sending..." : "Request demo"}
+              {status === "submitting" ? "Sending..." : "Send message"}
             </button>
           </div>
           
-          <p className="lt-reassurance">
+          <p className="contact-reassurance">
             We write to you only when there's something real to share, and we never sell or share your details with advertisers.
           </p>
           
+          {status === "success" && (
+            <p className="text-success text-sm text-center">
+              Thank you. We have received your message and will reply personally.
+            </p>
+          )}
+          
           {status === "error" && (
-            <p className="lt-error lt-error-message">
+            <p className="text-destructive text-sm text-center">
               Something went wrong. Please email hello@latouche.ai instead.
             </p>
           )}

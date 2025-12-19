@@ -2,25 +2,23 @@ import logoImage from "@/assets/la-touche-logo-nosquare.png";
 
 const Hero = () => {
   return (
-    <section className="lt-hero">
-      <div className="lt-shell">
-        <div className="lt-card lt-hero-card">
-          <div className="lt-brand">
-            <img 
-              alt="La Touche" 
-              src={logoImage}
-              className="lt-logo"
-            />
-          </div>
-
-          <h1>La Touche, simply The Touch.</h1>
-
-          <div className="lt-cta-row">
-            <a className="lt-btn" href="#request-demo">Request a demo</a>
-          </div>
-          <p className="lt-micro">A short private walkthrough. See your document in the format.</p>
-        </div>
+    <section className="hero">
+      <div className="hero-logo">
+        <img 
+          alt="La Touche" 
+          src={logoImage}
+          className="hero-logo-img"
+        />
       </div>
+
+      <h1 className="hero-title">The touch that begins everything</h1>
+      <p className="hero-subline">
+        The spirit of order in a world of disorder, powered by La Touche AI that works the way you think and speak.
+      </p>
+
+      <a href="#contact" className="hero-cta">
+        Stay close as we build
+      </a>
     </section>
   );
 };

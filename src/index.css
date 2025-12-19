@@ -203,14 +203,7 @@
   font-weight: 700;
 }
 
-.lt-subhead {
-  font-size: clamp(15px, 2vw, 18px);
-  color: hsl(var(--lt-muted));
-  margin: 0 0 16px;
-  max-width: 560px;
-  margin-left: auto;
-  margin-right: auto;
-}
+/* .lt-subhead removed - no longer used */
 
 .lt-cta-row {
   margin-top: 12px;

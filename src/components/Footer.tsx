@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="site-footer">
       <p className="footer-disclaimer">
-        La Touche uses artificial intelligence to support your work but it can still make mistakes so please check important information before you rely on it.
+        La Touche helps organise your work. Please check important details before using them.
       </p>
       <div className="footer-brand-block">
         <span className="footer-brand">LA TOUCHE®</span>

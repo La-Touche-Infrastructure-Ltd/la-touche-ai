@@ -99,7 +99,7 @@ const ContactForm = () => {
   return (
     <section id="contact" className="contact-section">
       <div className="contact-card">
-        <h2 className="mb-6">Tell us what feels heavy</h2>
+        <h2 className="mb-6">What's taking up your time right now?</h2>
         
         <form onSubmit={handleSubmit} className="contact-form">
           {/* Honeypot field */}
@@ -115,13 +115,13 @@ const ContactForm = () => {
           </div>
           
           <div className="field">
-            <label htmlFor="name" className="field-label">Name (optional)</label>
+            <label htmlFor="name" className="field-label">Your name (optional)</label>
             <input
               id="name"
               type="text"
               value={formData.name}
               onChange={handleChange("name")}
-              placeholder="Your name"
+              placeholder="First name is fine"
               autoComplete="name"
             />
           </div>
@@ -133,7 +133,7 @@ const ContactForm = () => {
               type="email"
               value={formData.email}
               onChange={handleChange("email")}
-              placeholder="you@example.com"
+              placeholder="Where should we send this?"
               autoComplete="email"
               required
               aria-describedby={errors.email ? "email-error" : undefined}
@@ -146,12 +146,12 @@ const ContactForm = () => {
           </div>
           
           <div className="field">
-            <label htmlFor="problem" className="field-label">What problem would you love La Touche to remove?</label>
+            <label htmlFor="problem" className="field-label">What's one thing you wish would just disappear?</label>
             <textarea
               id="problem"
               value={formData.problem}
               onChange={handleChange("problem")}
-              placeholder="Tell us one task or document you wish could disappear."
+              placeholder="A task, a message, or a document. Paste it here."
             />
           </div>
           
@@ -161,7 +161,7 @@ const ContactForm = () => {
               disabled={status === "submitting"}
               className="contact-submit"
             >
-              {status === "submitting" ? "Sending..." : "Send message"}
+              {status === "submitting" ? "Sending..." : "Get The Touch"}
             </button>
           </div>
           

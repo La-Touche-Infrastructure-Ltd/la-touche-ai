@@ -146,7 +146,7 @@ const ContactForm = () => {
           </div>
           
           <div className="field">
-            <label htmlFor="problem" className="field-label">What's one thing you wish would just disappear?</label>
+            <label htmlFor="problem" className="field-label">What do you wish would disappear?</label>
             <textarea
               id="problem"
               value={formData.problem}

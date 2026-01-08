@@ -14,7 +14,7 @@ interface FormErrors {
 }
 
 // Web3Forms public access key - designed for client-side usage with domain restrictions
-const WEB3FORMS_ACCESS_KEY = "3df537a5-4a45-4be7-9170-c6a03fbfb370";
+const WEB3FORMS_ACCESS_KEY = "6fbaa9c7-23c3-4f2c-976b-386e23aca61f";
 
 // Input length limits for validation
 const MAX_NAME_LENGTH = 100;

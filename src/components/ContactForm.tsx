@@ -8,10 +8,18 @@ interface FormData {
 }
 
 interface FormErrors {
+  name?: string;
   email?: string;
+  problem?: string;
 }
 
+// Web3Forms public access key - designed for client-side usage with domain restrictions
 const WEB3FORMS_ACCESS_KEY = "3df537a5-4a45-4be7-9170-c6a03fbfb370";
+
+// Input length limits for validation
+const MAX_NAME_LENGTH = 100;
+const MAX_EMAIL_LENGTH = 255;
+const MAX_MESSAGE_LENGTH = 2000;
 
 const ContactForm = () => {
   const [formData, setFormData] = useState<FormData>({
@@ -31,8 +39,22 @@ const ContactForm = () => {
   const validate = (): boolean => {
     const newErrors: FormErrors = {};
     
-    if (!formData.email.trim() || !validateEmail(formData.email)) {
+    // Name validation (optional but with length limit)
+    if (formData.name && formData.name.trim().length > MAX_NAME_LENGTH) {
+      newErrors.name = `Name must be ${MAX_NAME_LENGTH} characters or less.`;
+    }
+    
+    // Email validation
+    const trimmedEmail = formData.email.trim();
+    if (!trimmedEmail || !validateEmail(trimmedEmail)) {
       newErrors.email = "Please add a valid email so La Touche can contact you.";
+    } else if (trimmedEmail.length > MAX_EMAIL_LENGTH) {
+      newErrors.email = `Email must be ${MAX_EMAIL_LENGTH} characters or less.`;
+    }
+    
+    // Message validation (optional but with length limit)
+    if (formData.problem && formData.problem.trim().length > MAX_MESSAGE_LENGTH) {
+      newErrors.problem = `Message must be ${MAX_MESSAGE_LENGTH} characters or less.`;
     }
     
     setErrors(newErrors);
@@ -123,7 +145,14 @@ const ContactForm = () => {
               onChange={handleChange("name")}
               placeholder="First name is fine"
               autoComplete="name"
+              maxLength={MAX_NAME_LENGTH}
+              aria-describedby={errors.name ? "name-error" : undefined}
             />
+            {errors.name && (
+              <p id="name-error" className="text-sm text-destructive mt-1">
+                {errors.name}
+              </p>
+            )}
           </div>
           
           <div className="field">
@@ -152,7 +181,14 @@ const ContactForm = () => {
               value={formData.problem}
               onChange={handleChange("problem")}
               placeholder="A task, a message, or a document. Paste it here."
+              maxLength={MAX_MESSAGE_LENGTH}
+              aria-describedby={errors.problem ? "problem-error" : undefined}
             />
+            {errors.problem && (
+              <p id="problem-error" className="text-sm text-destructive mt-1">
+                {errors.problem}
+              </p>
+            )}
           </div>
           
           <div className="text-center">

@@ -105,17 +105,21 @@ const ContactForm = () => {
     lastSubmitTime.current = now;
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: sanitizeInput(formData.name) || "Not provided",
-          email: formData.email.trim(),
-          message: sanitizeInput(formData.problem),
-        }),
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/contact`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "apikey": import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
+          },
+          body: JSON.stringify({
+            name: sanitizeInput(formData.name) || "Not provided",
+            email: formData.email.trim(),
+            message: sanitizeInput(formData.problem),
+          }),
+        }
+      );
 
       const result = await response.json();
 

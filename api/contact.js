@@ -1,34 +1,27 @@
-export const config = { runtime: "nodejs" };
-
 export default async function handler(req, res) {
   if (req.method !== "POST") {
-    return res.status(405).json({ success: false });
+    return res.status(405).json({ error: "Method not allowed" });
   }
 
   try {
     const { name, email, message } = req.body || {};
 
-    const accessKey = process.env.WEB3FORMS_ACCESS_KEY;
-    if (!accessKey) {
-      return res.status(500).json({ success: false, error: "Missing key" });
-    }
+    const payload = {
+      access_key: process.env.WEB3FORMS_ACCESS_KEY,
+      name,
+      email,
+      message,
+    };
 
-    const response = await fetch("https://api.web3forms.com/submit", {
+    const r = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        access_key: accessKey,
-        name: name || "Not provided",
-        email,
-        message,
-        subject: "New La Touche message",
-        from_name: "La Touche",
-      }),
+      body: JSON.stringify(payload),
     });
 
-    const data = await response.json();
-    return res.status(response.ok ? 200 : 400).json(data);
-  } catch {
-    return res.status(500).json({ success: false });
+    const data = await r.json();
+    return res.status(r.ok ? 200 : 400).json(data);
+  } catch (err) {
+    return res.status(500).json({ error: "Server error" });
   }
 }

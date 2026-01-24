@@ -47,7 +47,7 @@ const Terms = () => {
           
           <h2 className="text-2xl font-light text-foreground pt-4">Intellectual property</h2>
           <p className="leading-relaxed">
-            All text, images, branding and other content on this site belong to La Touche Academy Ltd, La Touche Ltd, or our licensors. LA TOUCHE® is a registered trademark of La Touche Ltd. You may not copy, reproduce or reuse content without our permission, except for normal personal browsing.
+            All text, images, branding and other content on this site are owned by La Touche Academy Ltd and/or its licensors. LA TOUCHE® is a registered trademark of La Touche Ltd.
           </p>
           
           <h2 className="text-2xl font-light text-foreground pt-4">Links</h2>

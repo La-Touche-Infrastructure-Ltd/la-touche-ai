@@ -12,61 +12,61 @@ const Privacy = () => {
         </Link>
         
         <h1 className="text-4xl font-light text-foreground">
-          Privacy Policy – La Touche Website
+          Privacy Policy
         </h1>
         
         <div className="prose prose-invert prose-lg max-w-none space-y-6 text-muted-foreground">
           <p className="leading-relaxed">
-            This Privacy Policy explains how La Touche ("we", "us", "our") collects and uses personal data when you visit our website and when you contact us through the "Stay close as we build" form.
+            This Privacy Policy explains how La Touche Academy Ltd ("we", "us", "our") collects and uses personal data when you visit our website.
           </p>
           
-          <h2 className="text-2xl font-light text-foreground pt-4">Who we are</h2>
+          <h2 className="text-2xl font-light text-foreground pt-4">Data controller</h2>
           <p className="leading-relaxed">
-            La Touche is a human centred AI brand based in the United Kingdom.<br />
-            Contact email: hello@latouche.ai
+            La Touche Academy Ltd is the data controller for personal data collected through this website. La Touche Academy Ltd is a company registered in England and Wales (Company No. 16394708).
+          </p>
+          <p className="leading-relaxed">
+            La Touche Ltd is not a data controller or joint controller for data collected through this website. La Touche Ltd is the owner of the LA TOUCHE® trademark.
+          </p>
+          <p className="leading-relaxed">
+            Contact email: <a href="mailto:hello@latouche.ai" className="text-primary hover:text-primary/80">hello@latouche.ai</a>
           </p>
           
           <h2 className="text-2xl font-light text-foreground pt-4">Data we collect</h2>
-          <p className="leading-relaxed">If you use our contact form, we collect:</p>
-          <ul className="space-y-2 list-disc list-inside">
-            <li>Name</li>
-            <li>Email address</li>
-            <li>Organisation (optional)</li>
-            <li>The message you send us about your documents, workflows or other questions</li>
-          </ul>
-          
           <p className="leading-relaxed">
-            Our hosting and email providers may also collect basic technical information such as:
+            This is a holding page with no forms or data submission mechanisms. We do not actively collect personal data from visitors.
+          </p>
+          <p className="leading-relaxed">
+            Our hosting providers may automatically collect basic technical information such as:
           </p>
           <ul className="space-y-2 list-disc list-inside">
             <li>IP address</li>
             <li>Browser type and device information</li>
             <li>Date and time of your visit</li>
           </ul>
-          
           <p className="leading-relaxed">
-            We do not currently run advertising trackers on this holding page.
+            This data is collected for security and operational purposes only.
           </p>
           
-          <h2 className="text-2xl font-light text-foreground pt-4">How we use your data</h2>
-          <p className="leading-relaxed">We use the information you provide to:</p>
-          <ul className="space-y-2 list-disc list-inside">
-            <li>Read and respond to your message</li>
-            <li>Keep a record of people and organisations interested in La Touche</li>
-            <li>Improve how we design our tools and services</li>
-          </ul>
-          <p className="leading-relaxed">We do not sell your personal data.</p>
+          <h2 className="text-2xl font-light text-foreground pt-4">Email contact</h2>
+          <p className="leading-relaxed">
+            If you choose to contact us by email at hello@latouche.ai, we will collect and process the information you provide (such as your name, email address, and message content) to respond to your enquiry.
+          </p>
+          
+          <h2 className="text-2xl font-light text-foreground pt-4">Cookies and trackers</h2>
+          <p className="leading-relaxed">
+            We do not use marketing or analytics trackers on this website. We use only essential cookies required for the basic operation of the site. See our <Link to="/cookies" className="text-primary hover:text-primary/80">Cookies page</Link> for more information.
+          </p>
           
           <h2 className="text-2xl font-light text-foreground pt-4">Legal basis</h2>
-          <p className="leading-relaxed">Our legal basis for processing this data is:</p>
+          <p className="leading-relaxed">Our legal basis for processing data is:</p>
           <ul className="space-y-2 list-disc list-inside">
-            <li>Legitimate interests, to respond to your enquiry and understand interest in La Touche</li>
-            <li>In some cases consent, when you clearly ask us to keep you updated</li>
+            <li>Legitimate interests, for security and operational purposes</li>
+            <li>Legitimate interests, to respond to email enquiries</li>
           </ul>
           
           <h2 className="text-2xl font-light text-foreground pt-4">How long we keep your data</h2>
           <p className="leading-relaxed">
-            We keep contact emails and form submissions while we are actively building La Touche and engaging with early partners, unless you ask us to delete your information sooner.
+            Technical logs are retained for a limited period for security purposes. Email correspondence is retained while relevant to ongoing discussions or as required for legal purposes.
           </p>
           
           <h2 className="text-2xl font-light text-foreground pt-4">Who we share data with</h2>
@@ -74,10 +74,9 @@ const Privacy = () => {
           <ul className="space-y-2 list-disc list-inside">
             <li>Our website hosting provider</li>
             <li>Our email provider (for example, Google Workspace)</li>
-            <li>Other service providers who help us operate the website and manage messages</li>
           </ul>
           <p className="leading-relaxed">
-            All such providers are required to keep your data secure and use it only for providing their services to us.
+            All such providers are required to keep your data secure and use it only for providing their services to us. We do not sell your personal data.
           </p>
           
           <h2 className="text-2xl font-light text-foreground pt-4">Your rights</h2>
@@ -89,7 +88,7 @@ const Privacy = () => {
             <li>Object to or restrict certain types of processing</li>
           </ul>
           <p className="leading-relaxed">
-            To exercise these rights, contact hello@latouche.ai.
+            To exercise these rights, contact <a href="mailto:hello@latouche.ai" className="text-primary hover:text-primary/80">hello@latouche.ai</a>.
           </p>
           
           <h2 className="text-2xl font-light text-foreground pt-4">Changes to this policy</h2>
@@ -98,7 +97,7 @@ const Privacy = () => {
           </p>
           
           <p className="text-sm text-muted-foreground pt-8">
-            Last updated: 9 December 2025
+            Last updated: 24 January 2026
           </p>
         </div>
       </article>

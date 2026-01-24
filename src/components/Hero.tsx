@@ -16,10 +16,6 @@ const Hero = () => {
         The spirit of order in a world of disorder, powered by LA TOUCHE.<br />
         Simply The Touch that works the way you think and speak.
       </p>
-
-      <a href="#contact" className="hero-cta">
-        Stay close as we build
-      </a>
     </section>
   );
 };

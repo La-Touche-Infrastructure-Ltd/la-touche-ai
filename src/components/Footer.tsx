@@ -3,15 +3,17 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className="site-footer">
-      <p className="footer-disclaimer">
-        La Touche helps organise your work. Please check important details before using them.
-      </p>
-      <div className="footer-brand-block">
-        <span className="footer-brand">LA TOUCHE®</span>
-        <span className="footer-copyright">© 2025 La Touche Ltd. All rights reserved.</span>
+      <div className="footer-legal-block">
+        <p className="footer-copyright">© 2026 La Touche Academy Ltd. All rights reserved.</p>
+        <p className="footer-operator">
+          Services are operated by La Touche Academy Ltd (Company No. 16394708).
+        </p>
+        <p className="footer-trademark">
+          LA TOUCHE® is a trademark owned by La Touche Ltd.
+        </p>
       </div>
       <div className="footer-links">
-        <Link to="/privacy">Privacy</Link>
+        <Link to="/privacy">Privacy Policy</Link>
         <span className="footer-divider">|</span>
         <Link to="/cookies">Cookies</Link>
         <span className="footer-divider">|</span>

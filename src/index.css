@@ -462,6 +462,82 @@
 }
 
 /* ================================================
+   HOLDING STATEMENT
+   ================================================ */
+
+.holding-statement {
+  padding-top: 1rem;
+  padding-bottom: 3.5rem;
+}
+
+.holding-card {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2.4rem 1.8rem;
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(79, 225, 255, 0.16), transparent 55%),
+    radial-gradient(circle at 100% 120%, rgba(0, 168, 255, 0.28), #05070C);
+  box-shadow:
+    0 38px 90px rgba(0, 0, 0, 0.95),
+    0 0 40px rgba(0, 0, 0, 0.55);
+  border: 1px solid hsl(var(--border-soft));
+  backdrop-filter: blur(22px);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .holding-card {
+    padding: 2.6rem 2.3rem;
+  }
+}
+
+.holding-lead {
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0 0 1.4rem 0;
+  color: hsl(var(--foreground));
+}
+
+.holding-body {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: hsl(var(--text-muted));
+  margin: 0 0 1rem 0;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.holding-contact {
+  font-size: 0.95rem;
+  color: hsl(var(--text-muted));
+  margin: 1.6rem 0 1.4rem 0;
+}
+
+.holding-email {
+  color: hsl(var(--azure));
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+
+.holding-email:hover {
+  color: hsl(var(--light-cyan));
+}
+
+.holding-disclaimer {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: hsl(var(--muted-foreground));
+  opacity: 0.8;
+  margin: 1.4rem 0 0 0;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ================================================
    FOOTER
    ================================================ */
 
@@ -474,33 +550,29 @@
   color: hsl(var(--text-muted));
 }
 
-.footer-disclaimer {
-  max-width: 600px;
-  margin: 0 auto 1.2rem;
-  font-size: 0.78rem;
-  line-height: 1.5;
-  opacity: 0.7;
-  color: hsl(var(--muted-foreground));
-}
-
-.footer-brand-block {
+.footer-legal-block {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.3rem;
-  margin-top: 1rem;
-}
-
-.footer-brand {
-  font-weight: 600;
-  font-size: 0.86rem;
-  letter-spacing: 0.1em;
-  color: hsl(var(--foreground));
+  gap: 0.35rem;
+  margin-bottom: 1rem;
 }
 
 .footer-copyright {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
+  color: hsl(var(--foreground));
+}
+
+.footer-operator {
+  font-size: 0.78rem;
   color: hsl(var(--muted-foreground));
+  margin: 0;
+}
+
+.footer-trademark {
+  font-size: 0.78rem;
+  color: hsl(var(--muted-foreground));
+  margin: 0;
 }
 
 .footer-links {

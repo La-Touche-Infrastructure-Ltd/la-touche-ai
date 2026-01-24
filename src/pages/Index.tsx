@@ -1,5 +1,5 @@
 import Hero from "@/components/Hero";
-import ContactForm from "@/components/ContactForm";
+import HoldingStatement from "@/components/HoldingStatement";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
 
@@ -8,7 +8,7 @@ const Index = () => {
     <main>
       <div className="page-shell">
         <Hero />
-        <ContactForm />
+        <HoldingStatement />
         <Footer />
       </div>
       <CookieBanner />

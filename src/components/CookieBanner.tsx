@@ -7,6 +7,7 @@ const CookieBanner = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    // Only show banner if consent has not been recorded
     const consent = localStorage.getItem(COOKIE_CONSENT_KEY);
     if (!consent) {
       setIsVisible(true);
@@ -14,11 +15,6 @@ const CookieBanner = () => {
   }, []);
 
   const handleAccept = () => {
-    localStorage.setItem(COOKIE_CONSENT_KEY, "accepted");
-    setIsVisible(false);
-  };
-
-  const handleEssentialOnly = () => {
     localStorage.setItem(COOKIE_CONSENT_KEY, "essential");
     setIsVisible(false);
   };
@@ -28,15 +24,12 @@ const CookieBanner = () => {
   return (
     <div className="cookie-banner">
       <p className="cookie-banner-text">
-        La Touche uses cookies to keep this site working and to understand how it is used. You can read more in our{" "}
+        This site uses only essential cookies required for it to function. Read more in our{" "}
         <Link to="/cookies" className="cookie-banner-link">Cookies</Link> page.
       </p>
       <div className="cookie-banner-actions">
         <button onClick={handleAccept} className="cookie-banner-accept">
-          Accept cookies
-        </button>
-        <button onClick={handleEssentialOnly} className="cookie-banner-essential">
-          Only essential
+          Got it
         </button>
       </div>
     </div>

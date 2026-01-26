@@ -21,7 +21,7 @@ const Terms = () => {
             This website is operated by La Touche Academy Ltd ("we", "us", "our"), a company registered in England and Wales (Company No. 16394708). La Touche Ltd is not the operator or service provider of this website. LA TOUCHE® is a trademark owned by La Touche Ltd and used under licence.
           </p>
           <p className="leading-relaxed">
-            This websitAll text, images, branding and other content on this site are owned by La Touche Academy Ltd or used under licence. LA TOUCHE® is a registered trademark of La Touche Ltd and is used under licence by La Touche Academy Ltd.
+            All text, images, branding and other content on this site are owned by La Touche Academy Ltd or used under licence. LA TOUCHE® is a registered trademark of La Touche Ltd and is used under licence by La Touche Academy Ltd.
 
           </p>
           

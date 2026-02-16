@@ -12,14 +12,19 @@ const Footer = () => {
   La Touche® is a registered UK trade mark.
 </p>
 
-      </div>
-      <div className="footer-links">
-        <Link to="/privacy">Privacy Policy</Link>
-        <span className="footer-divider">|</span>
-        <Link to="/cookies">Cookies</Link>
-        <span className="footer-divider">|</span>
-        <Link to="/terms">Terms</Link>
-      </div>
+     <div className="footer-links">
+  <Link to="/privacy">Privacy Policy</Link>
+  <span className="footer-divider">|</span>
+
+  <Link to="/cookies">Cookies</Link>
+  <span className="footer-divider">|</span>
+
+  <Link to="/terms">Terms</Link>
+  <span className="footer-divider">|</span>
+
+  <Link to="/trademark">Trade mark</Link>
+</div>
+
     </footer>
   );
 };

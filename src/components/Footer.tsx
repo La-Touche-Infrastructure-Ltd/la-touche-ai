@@ -22,7 +22,8 @@ const Footer = () => {
   <Link to="/terms">Terms</Link>
   <span className="footer-divider">|</span>
 
-  <Link to="/trademark">Trade mark</Link>
+  <Link to="/trademark">Trade Mark</Link>
+
 </div>
 
     </footer>

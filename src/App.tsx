@@ -1,3 +1,4 @@
+import About from "./pages/About";
 import Trademark from "./pages/Trademark";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -25,6 +26,7 @@ const App = () => (
   <Route path="/terms" element={<Terms />} />
   <Route path="/trademark" element={<Trademark />} />
   <Route path="*" element={<NotFound />} />
+         <Route path="/about" element={<About />} />
 </Routes>
       </BrowserRouter>
     </TooltipProvider>

@@ -1,6 +1,6 @@
 const Trademark = () => {
   return (
-    <main className="legal-page">
+    <main style={{ color: "white", padding: "40px" }}>
       <h1>Trade mark</h1>
 
       <p>
@@ -9,8 +9,8 @@ const Trademark = () => {
       </p>
 
       <p>
-        Services are operated by <strong>La Touche Academy Ltd</strong> (Company No.{" "}
-        <strong>16394708</strong>).
+        Services are operated by <strong>La Touche Academy Ltd</strong> (Company No. <strong>16394708</strong>).
+
       </p>
     </main>
   );

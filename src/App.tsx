@@ -17,13 +17,14 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/privacy" element={<Privacy />} />
-          <Route path="/cookies" element={<Cookies />} />
-          <Route path="/terms" element={<Terms />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+       <Routes>
+  <Route path="/" element={<Index />} />
+  <Route path="/privacy" element={<Privacy />} />
+  <Route path="/cookies" element={<Cookies />} />
+  <Route path="/terms" element={<Terms />} />
+  <Route path="/trademark" element={<Trademark />} />
+  <Route path="*" element={<NotFound />} />
+</Routes>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

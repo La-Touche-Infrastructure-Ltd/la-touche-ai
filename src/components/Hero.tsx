@@ -12,10 +12,10 @@ const Hero = () => {
       </div>
 
       <h1 className="hero-title">The Touch That Begins Order.</h1>
-      <p className="hero-subline">
-        The spirit of order in a world of disorder, powered by LA TOUCHE.<br />
-        Simply The Touch that works the way you think and speak.
-      </p>
+    <p className="hero-subline">
+  The spirit of order in a world of disorder. Powered by LA TOUCHE®.<br />
+  Simply The Touch that works the way you think and speak.
+</p>
     </section>
   );
 };

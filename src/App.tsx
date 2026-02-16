@@ -19,14 +19,14 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-       <Routes>
+    <Routes>
   <Route path="/" element={<Index />} />
+  <Route path="/about" element={<About />} />
   <Route path="/privacy" element={<Privacy />} />
   <Route path="/cookies" element={<Cookies />} />
   <Route path="/terms" element={<Terms />} />
   <Route path="/trademark" element={<Trademark />} />
   <Route path="*" element={<NotFound />} />
-         <Route path="/about" element={<About />} />
 </Routes>
       </BrowserRouter>
     </TooltipProvider>

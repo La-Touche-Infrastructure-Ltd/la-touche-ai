@@ -6,10 +6,10 @@ const Footer = () => {
       <div className="footer-legal-block">
         <p className="footer-copyright">© 2026 La Touche Academy Ltd. All rights reserved.</p>
         <p className="footer-operator">
-          Services are operated by La Touche Academy Ltd (Company No. 16394708).
+          Services are operated by La Touche Academy Ltd.
         </p>
    <p className="footer-trademark">
-  La Touche® is a registered UK trade mark (No. UK00004295675) owned by La Touche Ltd (Company No. 13217665).
+  La Touche® is a registered UK trade mark.
 </p>
 
       </div>

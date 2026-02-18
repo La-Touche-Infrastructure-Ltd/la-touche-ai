@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 
 const COOKIE_CONSENT_KEY = "la_touche_cookie_consent";
 
@@ -24,8 +23,7 @@ const CookieBanner = () => {
   return (
     <div className="cookie-banner">
       <p className="cookie-banner-text">
-        This site uses only essential cookies required for it to function. Read more in our{" "}
-        <Link to="/cookies" className="cookie-banner-link">Cookies</Link> page.
+        This site uses only essential cookies required for it to function.
       </p>
       <div className="cookie-banner-actions">
         <button onClick={handleAccept} className="cookie-banner-accept">

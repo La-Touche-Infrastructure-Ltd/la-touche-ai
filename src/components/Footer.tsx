@@ -21,6 +21,9 @@ const Footer = () => {
           <Link to="/privacy">Privacy Policy</Link>
           <span className="footer-divider">|</span>
 
+          <Link to="/cookies">Cookies</Link>
+          <span className="footer-divider">|</span>
+
           <Link to="/terms">Terms</Link>
           <span className="footer-divider">|</span>
 

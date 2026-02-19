@@ -1,3 +1,4 @@
+import CookieBanner from "./components/CookieBanner";
 import About from "./pages/About";
 import Trademark from "./pages/Trademark";
 import { Toaster } from "@/components/ui/toaster";
@@ -30,8 +31,12 @@ const App = () => (
   <Route path="/trademark" element={<Trademark />} />
   <Route path="*" element={<NotFound />} />
 </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
+     </BrowserRouter>
+
+<CookieBanner />
+
+</TooltipProvider>
+
   </QueryClientProvider>
 );
 

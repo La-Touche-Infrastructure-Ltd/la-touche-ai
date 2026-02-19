@@ -34,14 +34,11 @@ const About = () => {
           </p>
 
           <p className="leading-relaxed">
-            We are currently operating as a holding page while infrastructure
-            is being developed.
-          </p>
-
-          <p className="text-sm text-muted-foreground pt-8">
-            La Touche® is a registered UK trade mark.
-          </p>
-
+  <strong>LA TOUCHE®</strong> is a registered UK trade mark owned by 
+  <strong> La Touche Ltd</strong>. This website and its services are operated by 
+  <strong> La Touche Academy Ltd</strong>.
+</p>
+          
         </div>
       </article>
     </main>

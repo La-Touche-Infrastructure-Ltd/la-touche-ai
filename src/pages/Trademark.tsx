@@ -1,17 +1,38 @@
+import { Link } from "react-router-dom";
+
 const Trademark = () => {
   return (
-    <main style={{ color: "white", padding: "40px" }}>
-      <h1>Trade mark</h1>
+    <main className="min-h-screen bg-background py-20 px-6">
+      <article className="max-w-3xl mx-auto space-y-8">
+        <Link
+          to="/"
+          className="text-primary hover:text-primary/80 transition-colors text-sm"
+        >
+          ← Back to home
+        </Link>
 
-      <p>
-        <strong>LA TOUCHE®</strong> is a registered UK trade mark (No. <strong>UK00004295675</strong>)
-        owned by <strong>La Touche Ltd</strong> (Company No. <strong>13217665</strong>).
-      </p>
+        <h1 className="text-4xl font-light text-foreground">
+          Trade mark notice
+        </h1>
 
-      <p>
-        Services are operated by <strong>La Touche Academy Ltd</strong> (Company No. <strong>16394708</strong>).
+        <div className="prose prose-invert prose-lg max-w-none space-y-6 text-muted-foreground">
+          <p className="leading-relaxed">
+            <strong>LA TOUCHE®</strong> is a registered UK trade mark (No.{" "}
+            <strong>UK00004295675</strong>) owned by{" "}
+            <strong>La Touche Ltd</strong> (Company No.{" "}
+            <strong>13217665</strong>).
+          </p>
 
-      </p>
+          <p className="leading-relaxed">
+            This website is operated by <strong>La Touche Academy Ltd</strong>{" "}
+            (Company No. <strong>16394708</strong>).
+          </p>
+
+          <p className="text-sm text-muted-foreground pt-8">
+            Last updated: 24 January 2026
+          </p>
+        </div>
+      </article>
     </main>
   );
 };

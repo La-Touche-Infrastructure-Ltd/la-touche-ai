@@ -33,7 +33,7 @@ const App = () => (
 </Routes>
      </BrowserRouter>
 
-<CookieBanner />
+{/* <CookieBanner /> */}
 
 </TooltipProvider>
 

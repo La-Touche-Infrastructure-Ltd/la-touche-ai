@@ -7,29 +7,37 @@ const CookieBanner = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Only show banner if consent has not been recorded
     const consent = localStorage.getItem(COOKIE_CONSENT_KEY);
     if (!consent) {
       setIsVisible(true);
     }
   }, []);
 
-  const handleAccept = () => {
-    localStorage.setItem(COOKIE_CONSENT_KEY, "essential");
+  const handleAcknowledge = () => {
+    localStorage.setItem(COOKIE_CONSENT_KEY, "essential_acknowledged");
     setIsVisible(false);
   };
 
   if (!isVisible) return null;
 
   return (
-    <div className="cookie-banner">
-      <p className="cookie-banner-text">
-        This site uses only essential cookies required for it to function. Read more in our{" "}
-        <Link to="/cookies" className="cookie-banner-link">Cookies</Link> page.
-      </p>
-      <div className="cookie-banner-actions">
-        <button onClick={handleAccept} className="cookie-banner-accept">
-          Got it
+    <div className="fixed bottom-0 left-0 right-0 z-50 bg-background border-t border-border px-6 py-4">
+      <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <p className="text-sm text-muted-foreground">
+          This site uses only essential cookies required for it to function.
+          No analytics or marketing cookies are currently used.
+          Read more in our{" "}
+          <Link to="/cookies" className="text-primary hover:text-primary/80 transition-colors">
+            Cookies
+          </Link>{" "}
+          page.
+        </p>
+
+        <button
+          onClick={handleAcknowledge}
+          className="text-sm bg-primary text-primary-foreground px-4 py-2 rounded-md hover:opacity-90 transition"
+        >
+          Acknowledge
         </button>
       </div>
     </div>

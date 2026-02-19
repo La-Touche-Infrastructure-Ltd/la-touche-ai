@@ -18,6 +18,9 @@ const Footer = () => {
         </p>
 
         <div className="footer-links">
+          <Link to="/about">About</Link>
+          <span className="footer-divider">|</span>
+
           <Link to="/privacy">Privacy Policy</Link>
           <span className="footer-divider">|</span>
 
@@ -30,8 +33,7 @@ const Footer = () => {
           <Link to="/trademark">Trade Mark</Link>
         </div>
 
-      </div> {/* ← THIS WAS MISSING */}
-
+      </div>
     </footer>
   );
 };

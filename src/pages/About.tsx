@@ -32,13 +32,7 @@ const About = () => {
             This website and its services are operated by{" "}
             <strong>La Touche Academy Ltd</strong>.
           </p>
-
-          <p className="leading-relaxed">
-  <strong>LA TOUCHE®</strong> is a registered UK trade mark owned by 
-  <strong> La Touche Ltd</strong>. This website and its services are operated by 
-  <strong> La Touche Academy Ltd</strong>.
-</p>
-          
+       
         </div>
       </article>
     </main>

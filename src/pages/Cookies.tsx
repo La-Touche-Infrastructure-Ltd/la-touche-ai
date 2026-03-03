@@ -1,6 +1,15 @@
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 const Cookies = () => {
+  useEffect(() => {
+    const meta = document.createElement("meta");
+    meta.name = "robots";
+    meta.content = "noindex, nofollow";
+    document.head.appendChild(meta);
+    return () => { document.head.removeChild(meta); };
+  }, []);
+
   return (
     <main className="min-h-screen bg-background py-20 px-6">
       <article className="max-w-3xl mx-auto space-y-8">

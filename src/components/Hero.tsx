@@ -3,7 +3,6 @@ import logoImage from "@/assets/la-touche-logo-nosquare.png";
 const Hero = () => {
   return (
     <section className="hero">
-      {/* Layer 1: Logo */}
       <div className="hero-logo">
         <img 
           alt="La Touche" 
@@ -12,28 +11,10 @@ const Hero = () => {
         />
       </div>
 
-      {/* Layer 2: Headline */}
       <h1 className="hero-title">Simply The Touch that brings order.</h1>
 
-      {/* Layer 3: Category line */}
       <p className="hero-category">
         La Touche is Responsibility Infrastructure.
-      </p>
-
-      {/* Layer 4: Definition */}
-      <p className="hero-definition">
-        A digital rail that records when responsibility moves between people, systems, and organisations.
-      </p>
-
-      {/* Layer 5: Proof line */}
-      <p className="hero-proof">
-        Responsibility becomes proof.
-      </p>
-
-      {/* Layer 6: Philosophy */}
-      <p className="hero-philosophy">
-        The spirit of order in a world of disorder.<br />
-        Built by LA TOUCHE®.
       </p>
     </section>
   );

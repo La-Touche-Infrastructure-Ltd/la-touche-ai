@@ -2,10 +2,18 @@ const HoldingStatement = () => {
   return (
     <section className="holding-statement">
       <div className="holding-card">
-        <p className="holding-lead">La Touche is being built carefully.</p>
-        
         <p className="holding-body">
-          We are designing a calm, human-centred system to reduce friction and restore order to everyday work.
+          A digital rail that records when responsibility moves between people, systems, and organisations.
+        </p>
+
+        <p className="holding-lead">
+          Responsibility becomes proof.
+        </p>
+
+        <hr className="holding-divider" />
+
+        <p className="holding-body">
+          La Touche is being built carefully. We are designing a calm, human-centred system to reduce friction and restore order to everyday work.
         </p>
         
         <p className="holding-body">

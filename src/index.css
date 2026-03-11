@@ -241,18 +241,10 @@
 
 .hero-category {
   max-width: 640px;
-  margin: 0 auto 3rem;
+  margin: 0 auto;
   font-size: 1.02rem;
   font-weight: 600;
   line-height: 1.6;
-  color: hsl(var(--text-muted));
-}
-
-.hero-definition {
-  max-width: 600px;
-  margin: 0 auto 3rem;
-  font-size: 1rem;
-  line-height: 1.7;
   color: hsl(var(--text-muted));
 }
 
@@ -273,6 +265,13 @@
   line-height: 1.8;
   color: hsl(var(--text-muted) / 0.6);
   letter-spacing: 0.01em;
+}
+
+.holding-divider {
+  border: none;
+  border-top: 1px solid hsl(var(--border-soft));
+  margin: 1.8rem auto;
+  max-width: 120px;
 }
 
 /* ================================================

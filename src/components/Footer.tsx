@@ -5,13 +5,20 @@ const Footer = () => {
     <footer className="mt-32 py-16 text-center">
       <div className="max-w-2xl mx-auto space-y-3">
 
-        <p className="text-sm opacity-70">
-          © 2026 La Touche Academy Ltd.
+        <p className="hero-philosophy">
+          The spirit of order in a world of disorder.<br />
+          Built by LA TOUCHE®.
         </p>
 
-        <p className="text-sm opacity-60">
-          Services operated by La Touche Academy Ltd.
-        </p>
+        <div className="pt-10">
+          <p className="text-sm opacity-70">
+            © 2026 La Touche Academy Ltd.
+          </p>
+
+          <p className="text-sm opacity-60 mt-2">
+            Services operated by La Touche Academy Ltd.
+          </p>
+        </div>
 
         <nav className="flex flex-wrap justify-center gap-x-8 gap-y-4 pt-10 text-sm tracking-wide font-light">
           <Link to="/about" className="opacity-70 hover:opacity-100 transition duration-200">

@@ -13,7 +13,7 @@ const Hero = () => {
       </div>
 
       {/* Layer 2: Headline */}
-      <h1 className="hero-title">The Touch That Brings Order</h1>
+      <h1 className="hero-title">Simply The Touch that brings order.</h1>
 
       {/* Layer 3: Category line */}
       <p className="hero-category">
@@ -22,10 +22,15 @@ const Hero = () => {
 
       {/* Layer 4: Definition */}
       <p className="hero-definition">
-        A digital rail that records when responsibility moves between people, systems, and organisations, producing verifiable proof of duty discharge.
+        A digital rail that records when responsibility moves between people, systems, and organisations.
       </p>
 
-      {/* Layer 5: Philosophy */}
+      {/* Layer 5: Proof line */}
+      <p className="hero-proof">
+        Responsibility becomes proof.
+      </p>
+
+      {/* Layer 6: Philosophy */}
       <p className="hero-philosophy">
         The spirit of order in a world of disorder.<br />
         Built by LA TOUCHE®.

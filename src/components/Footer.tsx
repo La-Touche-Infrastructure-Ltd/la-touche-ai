@@ -6,9 +6,14 @@ const Footer = () => {
       <div className="max-w-2xl mx-auto">
 
         {/* Section 1 — Brand Signature */}
-        <p className="text-sm tracking-widest uppercase text-muted-foreground/60 mb-12">
-          La Touche — Responsibility Infrastructure.
-        </p>
+        <div className="mb-14 space-y-1">
+          <p className="text-base tracking-[0.18em] uppercase text-foreground/50 font-light">
+            La Touche
+          </p>
+          <p className="text-xs tracking-[0.22em] uppercase text-muted-foreground/40 font-light">
+            Responsibility Infrastructure
+          </p>
+        </div>
 
         {/* Section 2 — Legal Identity */}
         <div className="mb-10 space-y-1">

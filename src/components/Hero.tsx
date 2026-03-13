@@ -16,6 +16,10 @@ const Hero = () => {
       <p className="hero-category">
         La Touche is Responsibility Infrastructure.
       </p>
+
+      <p className="hero-explanation">
+        A digital rail that records when responsibility moves between people, systems, and organisations.
+      </p>
     </section>
   );
 };

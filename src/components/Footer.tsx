@@ -21,16 +21,34 @@ const Footer = () => {
         </div>
 
         {/* Section 3 — Navigation */}
-        <nav className="flex justify-center items-center gap-6 mb-10 text-sm tracking-wide font-light">
-          <Link to="/about" className="text-foreground/70 hover:text-primary transition duration-200">About</Link>
-          <span className="text-muted-foreground/30">|</span>
-          <Link to="/privacy" className="text-foreground/70 hover:text-primary transition duration-200">Privacy</Link>
-          <span className="text-muted-foreground/30">|</span>
-          <Link to="/cookies" className="text-foreground/70 hover:text-primary transition duration-200">Cookies</Link>
-          <span className="text-muted-foreground/30">|</span>
-          <Link to="/terms" className="text-foreground/70 hover:text-primary transition duration-200">Terms</Link>
-          <span className="text-muted-foreground/30">|</span>
-          <Link to="/trademark" className="text-foreground/70 hover:text-primary transition duration-200">Trade Mark</Link>
+        <nav className="mb-10 text-sm tracking-wide font-light">
+          {/* Desktop: single row */}
+          <div className="hidden sm:flex justify-center items-center gap-6">
+            <Link to="/about" className="text-foreground/70 hover:text-primary transition duration-200">About</Link>
+            <span className="text-muted-foreground/30">|</span>
+            <Link to="/privacy" className="text-foreground/70 hover:text-primary transition duration-200">Privacy</Link>
+            <span className="text-muted-foreground/30">|</span>
+            <Link to="/cookies" className="text-foreground/70 hover:text-primary transition duration-200">Cookies</Link>
+            <span className="text-muted-foreground/30">|</span>
+            <Link to="/terms" className="text-foreground/70 hover:text-primary transition duration-200">Terms</Link>
+            <span className="text-muted-foreground/30">|</span>
+            <Link to="/trademark" className="text-foreground/70 hover:text-primary transition duration-200">Trade Mark</Link>
+          </div>
+          {/* Mobile: two rows */}
+          <div className="sm:hidden space-y-3">
+            <div className="flex justify-center items-center gap-4">
+              <Link to="/about" className="text-foreground/70 hover:text-primary transition duration-200">About</Link>
+              <span className="text-muted-foreground/30">|</span>
+              <Link to="/privacy" className="text-foreground/70 hover:text-primary transition duration-200">Privacy</Link>
+              <span className="text-muted-foreground/30">|</span>
+              <Link to="/cookies" className="text-foreground/70 hover:text-primary transition duration-200">Cookies</Link>
+            </div>
+            <div className="flex justify-center items-center gap-4">
+              <Link to="/terms" className="text-foreground/70 hover:text-primary transition duration-200">Terms</Link>
+              <span className="text-muted-foreground/30">|</span>
+              <Link to="/trademark" className="text-foreground/70 hover:text-primary transition duration-200">Trade Mark</Link>
+            </div>
+          </div>
         </nav>
 
         {/* Section 4 — Trademark Notice */}

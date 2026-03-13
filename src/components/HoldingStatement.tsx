@@ -3,16 +3,6 @@ const HoldingStatement = () => {
     <section className="holding-statement">
       <div className="holding-card">
         <p className="holding-body">
-          A digital rail that records when responsibility moves between people, systems, and organisations.
-        </p>
-
-        <p className="holding-lead">
-          Responsibility becomes proof.
-        </p>
-
-        <hr className="holding-divider" />
-
-        <p className="holding-body">
           La Touche is in development.
         </p>
 

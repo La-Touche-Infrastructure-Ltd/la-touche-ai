@@ -7,7 +7,7 @@ const HoldingStatement = () => {
         margin: "0 auto",
       }}
     >
-      {/* SECTION LABEL */}
+      {/* LABEL */}
       <div
         style={{
           fontSize: "12px",
@@ -20,41 +20,36 @@ const HoldingStatement = () => {
         Definition
       </div>
 
-      {/* CORE STATEMENT */}
+      {/* MAIN STATEMENT */}
       <h2
         style={{
-          margin: "0 0 24px",
           fontSize: "clamp(28px, 4vw, 44px)",
           lineHeight: 1.2,
           letterSpacing: "-0.04em",
-          fontWeight: 600,
-          color: "#fff",
+          marginBottom: "24px",
         }}
       >
-        Responsibility Infrastructure is the system of record for human
-        responsibility.
+        Responsibility Infrastructure is the system of record for human responsibility.
       </h2>
 
       {/* EXPLANATION */}
       <p
         style={{
-          margin: "0 0 24px",
           fontSize: "18px",
-          lineHeight: 1.75,
+          lineHeight: 1.7,
           color: "rgba(255,255,255,0.7)",
           maxWidth: "720px",
         }}
       >
-        It records when responsibility moves between people, systems, and
-        organisations, creating a continuous and verifiable record of ownership,
-        action, and outcome.
+        It records when responsibility moves between people, systems, and organisations,
+        creating a continuous and verifiable record of ownership, action, and outcome.
       </p>
 
-      {/* STRUCTURED LINE */}
+      {/* FLOW */}
       <div
         style={{
-          marginTop: "30px",
-          padding: "24px 28px",
+          marginTop: "40px",
+          padding: "24px",
           borderRadius: "20px",
           border: "1px solid rgba(255,255,255,0.08)",
           background: "rgba(255,255,255,0.03)",
@@ -64,7 +59,7 @@ const HoldingStatement = () => {
           style={{
             margin: 0,
             fontSize: "18px",
-            lineHeight: 1.7,
+            letterSpacing: "-0.01em",
             color: "rgba(255,255,255,0.85)",
           }}
         >
@@ -72,7 +67,7 @@ const HoldingStatement = () => {
         </p>
       </div>
 
-      {/* AUTHORITY LINE */}
+      {/* AUTHORITY */}
       <p
         style={{
           marginTop: "40px",
